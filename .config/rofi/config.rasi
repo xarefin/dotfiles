@@ -1,0 +1,167 @@
+@import "colors.rasi"
+
+/* Translucent Dracula Rofi Config - Custom Window Icon \ne70f */
+
+configuration {
+    modi:                    "drun,run,window";
+    show-icons:              true;
+    disable-history:         false;
+    font:                    "JetBrainsMono Nerd Font 12";  /* <--- Add this here */
+    
+    /* Custom Icons */
+    display-drun:            ""; 
+    display-run:             ""; 
+    display-window:          ""; 
+    
+    drun-display-format:     "{name} <span size='small' color='#6272a4'><i>({generic})</i></span>";
+}
+
+window {
+    width:                   600px;
+    background-color:        rgba(18, 19, 24, 0.50);
+    border:                  0px;
+    border-radius:           12px;
+    border-color:            @bordercolor;
+    padding:                 15px;
+}
+
+mainbox {
+    enabled:                 true;
+    orientation:             vertical;
+    children:                [ "inputbar", "listview", "mode-switcher" ];
+    spacing:                 12px;
+    background-color:        transparent;
+    border:                  0px;
+    padding:                 0px;
+}
+
+/* --- Search Bar with Arch Logo --- */
+inputbar {
+    enabled:                 true;
+    background-color:        transparent;
+    spacing:                 0px;
+    text-color:              @foreground;
+    padding:                 4px;
+    children:                [ textbox-prompt-colon, entry, case-indicator ];
+}
+
+textbox-prompt-colon {
+    background-color:        transparent;
+    expand:                  false;
+    str:                     "󰣇 ";
+    margin:                  0px 0.3em 0em 0em;
+    text-color:              @arch-color;
+}
+
+entry {
+    background-color:        transparent;
+    spacing:                 0px;
+    text-color:              @foreground;
+    placeholder:             "Search...";
+    placeholder-color:       #6272a4;
+}
+
+case-indicator {
+    background-color:        transparent;
+    spacing:                 0px;
+    text-color:              @foreground;
+}
+
+listview {
+    enabled:                 true;
+    columns:                 1;
+    lines:                   12;
+    fixed-height:            true;
+    cycle:                   true;
+    dynamic:                 true;
+    background-color:        transparent;
+    border:                  0px;
+    spacing:                 4px;
+    scrollbar:               false;
+    padding:                 0px;
+}
+
+element {
+    enabled:                 true;
+    border:                  0px;
+    padding:                 8px 14px;
+    border-radius:           8px;
+    background-color:        transparent;
+    text-color:              @foreground;
+    spacing:                 10px;
+}
+
+element.normal.normal {
+    background-color:        transparent;
+    text-color:              @foreground;
+}
+
+element.normal.urgent {
+    background-color:        @urgent-background;
+    text-color:              @urgent-foreground;
+}
+
+element.normal.active {
+    background-color:        @active-background;
+    text-color:              @foreground;
+}
+
+element.selected.normal {
+    background-color:        @selected-background;
+    text-color:              #282a36;
+}
+
+element.selected.urgent {
+    background-color:        @selected-urgent-background;
+    text-color:              @foreground;
+}
+
+element.selected.active {
+    background-color:        @selected-active-background;
+    text-color:              @foreground;
+}
+
+element.alternate.normal {
+    background-color:        transparent;
+    text-color:              @foreground;
+}
+
+element.alternate.urgent {
+    background-color:        @urgent-background;
+    text-color:              @foreground;
+}
+
+element.alternate.active {
+    background-color:        @active-background;
+    text-color:              @foreground;
+}
+
+element-text, element-icon {
+    background-color:        transparent;
+    text-color:              inherit;
+    vertical-align:          0.5;
+}
+
+element-icon {
+    size:                    22px;
+}
+
+mode-switcher {
+    enabled:                 false;
+    spacing:                 8px;
+    background-color:        transparent;
+}
+
+button {
+    padding:                 8px 0px;
+    border-radius:           12px;
+    background-color:        rgba(255, 255, 255, 0.05);
+    text-color:              @accent;
+    cursor:                  pointer;
+    horizontal-align:        0.5;
+}
+
+button selected {
+    background-color:        @selected-background;
+    text-color:              #282a36;
+}

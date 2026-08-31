@@ -1,0 +1,90 @@
+* {
+    background-image: none;
+    box-shadow: none;
+    border: none;
+}
+
+window {
+    background-color: rgba(14, 21, 19, 0.45);
+}
+
+button {
+    border-radius: 20px;
+    border: none;
+    text-decoration-color: #FFFFFF;
+    color: #FFFFFF;
+    background-color: rgba(27, 33, 31, 0.6);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682);
+    margin: 10px;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Combined focus and hover so arrow keys trigger the same animation and color */
+button:focus, button:hover {
+    background-color: rgba(132, 214, 194, 0.15);
+    background-size: 32%;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+button:active {
+    background-color: rgba(132, 214, 194, 0.25);
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Default Normal Icons */
+#lock {
+    background-image: url("/home/arefin/.cache/wl-img/lock.png");
+}
+
+#logout {
+    background-image: url("/home/arefin/.cache/wl-img/logout.png");
+}
+
+#suspend {
+    background-image: url("/home/arefin/.cache/wl-img/sleep.png");
+}
+
+#hibernate {
+    background-image: url("/home/arefin/.cache/wl-img/hibernate.png");
+}
+
+#shutdown, #power {
+    background-image: url("/home/arefin/.cache/wl-img/power.png");
+}
+
+#reboot, #restart {
+    background-image: url("/home/arefin/.cache/wl-img/restart.png");
+}
+
+/* Hover & Focus Icons - Arrow keys will now trigger these */
+#lock:focus, #lock:hover {
+    background-image: url("/home/arefin/.cache/wl-img/lock-hover.png");
+}
+
+#logout:focus, #logout:hover {
+    background-image: url("/home/arefin/.cache/wl-img/logout-hover.png");
+}
+
+#suspend:focus, #suspend:hover {
+    background-image: url("/home/arefin/.cache/wl-img/sleep-hover.png");
+}
+
+#hibernate:focus, #hibernate:hover {
+    background-image: url("/home/arefin/.cache/wl-img/hibernate-hover.png");
+}
+
+#shutdown:focus, #power:focus, #shutdown:hover, #power:hover {
+    background-image: url("/home/arefin/.cache/wl-img/power-hover.png");
+}
+
+#reboot:focus, #restart:focus, #reboot:hover, #restart:hover {
+    background-image: url("/home/arefin/.cache/wl-img/restart-hover.png");
+}

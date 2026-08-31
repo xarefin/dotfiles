@@ -1,0 +1,15 @@
+* {
+    foreground:                  {{colors.on_surface.default.hex}};
+    
+    active-background:           {{colors.secondary.default.hex}}e6;
+    urgent-background:           {{colors.error.default.hex}};
+    urgent-foreground:           {{colors.on_error.default.hex}};
+    accent:                      {{colors.primary.default.hex}};
+    arch-color:                  {{colors.primary.default.hex}}; 
+
+    selected-background:         @accent;
+    selected-urgent-background:  @urgent-background;
+    selected-active-background:  @active-background;
+    separatorcolor:              @active-background;
+    bordercolor:                 @active-background;
+}

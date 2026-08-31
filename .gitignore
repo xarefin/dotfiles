@@ -1,0 +1,5 @@
+.config/Code/
+.config/discord/
+.config/google-chrome/
+.cache/
+node_modules/

@@ -1,0 +1,10 @@
+require("x.keybinds")
+require("x.monitors")
+require("x.autost")
+require("x.env")
+require("x.nice")
+require("x.layouts")
+require("x.misc")
+require("x.windowrules")
+require("x.input")
+

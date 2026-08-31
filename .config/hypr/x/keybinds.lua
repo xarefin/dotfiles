@@ -1,0 +1,115 @@
+---------------------
+---- MY PROGRAMS ----
+---------------------
+
+-- Set programs that you use
+local terminal    = "kitty"
+local fileManager = "thunar"
+local menu = "rofi -show drun"
+
+---------------------
+---- KEYBINDINGS ----
+---------------------
+
+local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+
+-- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
+hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
+local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/kill.sh"))
+
+-- closeWindowBind:set_enabled(false)
+hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + R", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.layout("togglesplit"))    -- dwindle only
+
+--fullscreen
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
+
+
+
+-- Switch workspaces with mainMod + [0-9]
+-- Move active window to a workspace with mainMod + SHIFT + [0-9]
+for i = 1, 10 do
+    local key = i % 10 -- 10 maps to key 0
+    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+end
+
+-- switch workspaces with tab 
+hl.bind(mainMod .. " + Tab", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.window.move({ workspace = "e+1" }))
+
+
+-- Example special workspace (scratchpad)
+hl.bind(mainMod .. " + SHIFT + M",         hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " + M", hl.dsp.window.move({ workspace = "special:magic" }))
+
+-- Scroll through existing workspaces with mainMod + scroll
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+
+-- Move/resize windows with mainMod + LMB/RMB and dragging
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-- Laptop multimedia keys for volume and LCD brightness using custom scripts
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/vol.sh --inc"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/vol.sh --dec"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute",        hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/vol.sh --toggle"), { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/vol.sh --toggle-mic"), { locked = true, repeating = true })
+
+hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/brightness.sh --inc"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/brightness.sh --dec"), { locked = true, repeating = true })
+
+
+hl.bind(mainMod .. " + XF86AudioRaiseVolume", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/vol.sh --mic-inc"), { locked = true, repeating = true })
+hl.bind(mainMod .. " + XF86AudioLowerVolume", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/vol.sh --mic-dec"), { locked = true, repeating = true })
+hl.bind(mainMod .. " + XF86AudioMute",        hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/vol.sh --toggle-mic"), { locked = true })
+
+-- Requires playerctl
+hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+
+-- Lock screen bind 
+hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("hyprlock -c ~/.config/hypr/hyprlock.conf"))
+
+-- Move focus with mainMod + HJKL (Vim style)
+hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
+
+-- Move active window with mainMod + SHIFT + HJKL (Vim style)
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
+
+-- Hyprshot and satty 
+hl.bind("CTRL + SHIFT + S", hl.dsp.exec_cmd([[hyprshot -m region --raw | satty --filename - --output-filename /home/arefin/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png]]))
+
+
+
+-- Clipboard --
+
+-- SUPER + V: Hide ID numbers and auto-paste selected item
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -display-columns 2 -p 'Clipboard' | cliphist decode | wl-copy && wtype -M shift -k Insert -m shift"))
+
+-- SUPER + SHIFT + V: Wipe History safely
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("cliphist wipe && notify-send 'Clipboard Cleared'"))
+
+
+-- ALT + Delete: Delete active copied item from database AND clear system clipboard
+hl.bind("ALT + Delete", hl.dsp.exec_cmd("cliphist list | head -n 1 | cliphist delete && wl-copy --clear && notify-send 'Clipboard Item Deleted'"))
+
+
+hl.bind("SUPER + x", hl.dsp.exec_cmd("~/.config/hypr/scripts/emoji.sh"))
+
+
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd('rofi -show wallpaper -modi "wallpaper:' .. os.getenv("HOME") .. '/.config/hypr/scripts/paper.sh" -theme-str "mainbox { children: [ \\"inputbar\\", \\"listview\\" ]; } listview { columns: 2; lines: 3; spacing: 12px; } element-text { enabled: false; } element-icon { size: 144px; horizontal-align: 0.5; } element { orientation: vertical; padding: 7px; }"'))

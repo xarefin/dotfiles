@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Active Theme Colors (Used by Waybar)
+   ========================================================================== */
+@define-color matugen-accent         {{colors.primary.default.hex}};
+@define-color matugen-bg-dot         alpha({{colors.primary.default.hex}}, 0.25);
+
+/* ==========================================================================
+   Full Matugen Palette Library (For Future Use)
+   ========================================================================== */
+
+/* --- Primary Palette --- */
+@define-color matugen-primary                {{colors.primary.default.hex}};
+@define-color matugen-on-primary             {{colors.on_primary.default.hex}};
+@define-color matugen-primary-container      {{colors.primary_container.default.hex}};
+@define-color matugen-on-primary-container   {{colors.on_primary_container.default.hex}};
+
+/* --- Secondary Palette --- */
+@define-color matugen-secondary              {{colors.secondary.default.hex}};
+@define-color matugen-on-secondary           {{colors.on_secondary.default.hex}};
+@define-color matugen-secondary-container    {{colors.secondary_container.default.hex}};
+@define-color matugen-on-secondary-container {{colors.on_secondary_container.default.hex}};
+
+/* --- Tertiary Palette --- */
+@define-color matugen-tertiary               {{colors.tertiary.default.hex}};
+@define-color matugen-on-tertiary            {{colors.on_tertiary.default.hex}};
+@define-color matugen-tertiary-container     {{colors.tertiary_container.default.hex}};
+@define-color matugen-on-tertiary-container  {{colors.on_tertiary_container.default.hex}};
+
+/* --- Error Palette --- */
+@define-color matugen-error                  {{colors.error.default.hex}};
+@define-color matugen-on-error               {{colors.on_error.default.hex}};
+@define-color matugen-error-container        {{colors.error_container.default.hex}};
+@define-color matugen-on-error-container     {{colors.on_error_container.default.hex}};
+
+/* --- Surface & Background --- */
+@define-color matugen-surface                {{colors.surface.default.hex}};
+@define-color matugen-on-surface             {{colors.on_surface.default.hex}};
+@define-color matugen-surface-variant        {{colors.surface_variant.default.hex}};
+@define-color matugen-on-surface-variant    {{colors.on_surface_variant.default.hex}};
+@define-color matugen-surface-container      {{colors.surface_container.default.hex}};
+
+/* --- Outline & Accents --- */
+@define-color matugen-outline                {{colors.outline.default.hex}};
+@define-color matugen-outline-variant        {{colors.outline_variant.default.hex}};
+@define-color matugen-shadow                 {{colors.shadow.default.hex}};
+@define-color matugen-scrim                  {{colors.scrim.default.hex}};

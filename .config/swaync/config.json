@@ -1,0 +1,118 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "layer-shell": true,
+  "cssPriority": "user",
+  "control-center-width": 380,
+  "control-center-height": 750,
+  "control-center-margin-top": 5,
+  "control-center-margin-bottom": 0,
+  "control-center-margin-right": 0,
+  "control-center-margin-left": 0,
+  "notification-2fa-action": true,
+  "notification-inline-replies": false,
+  "notification-window-width": 300,
+  "notification-icon-size": 24,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 100,
+  "timeout": 6,
+  "timeout-low": 4,
+  "timeout-critical": 0,
+  "fit-to-screen": false,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when available",
+  "transition-time": 200,
+  "hide-on-clear": true,
+  "hide-on-action": true,
+  "script-fail-notify": true,
+  "widgets": [
+    "buttons-grid",
+    "volume",
+    "backlight",
+    "title",
+    "mpris",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear"
+    },
+    "mpris": {
+      "image-size": 80,
+      "image-radius": 10,
+      "autohide": true
+    },
+    "volume": {
+      "label": "",
+      "step": 5
+    },
+    "backlight": {
+      "label": "󰃞",
+      "step": 5
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "",
+          "command": "kitty impala",
+          "tooltip": "Network"
+        },
+        {
+          "label": "",
+          "command": "kitty bluetui",
+          "tooltip": "Bluetooth"
+        },
+        {
+          "label": "󰂛",
+          "command": "swaync-client -d",
+          "type": "toggle",
+          "tooltip": "DND"
+        },
+        {
+          "label": "\uf4bc",
+          "command": "kitty btop",
+          "tooltip": "System Monitor (btop)"
+        },
+        {
+          "label": "\uefa7",
+          "command": "~/.config/hypr/scripts/ppdaemon.sh",
+          "tooltip": "Cycle Power Profile"
+        },
+        {
+          "label": "󰝟",
+          "command": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+          "type": "toggle",
+          "tooltip": "Mute Audio"
+        },
+        {
+          "label": "󰍭",
+          "command": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+          "type": "toggle",
+          "tooltip": "Mute Microphone"
+        },
+        {
+          "label": "󰀝",
+          "command": "~/.config/hypr/scripts/airplane.sh",
+          "type": "toggle",
+          "tooltip": "Airplane Mode"
+        },
+        {
+          "label": "󰌾",
+          "command": "hyprlock",
+          "tooltip": "Lock Screen"
+        },
+        {
+          "label": "󰛐",
+          "command": "~/.config/hypr/scripts/caffeine.sh",
+          "type": "toggle",
+          "tooltip": "Caffeine"
+        }
+      ]
+    }
+  }
+}

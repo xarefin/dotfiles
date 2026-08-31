@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Import Matugen Dynamic Colors
+   ========================================================================== */
+@import url("colors.css");
+
+/* Base Static Definitions */
+@define-color bg-dark          rgba(26, 27, 38, 0.45);
+@define-color border-color     @matugen-accent;
+@define-color text-main        @matugen-accent;
+@define-color text-muted       @matugen-accent;
+
+/* ==========================================================================
+   Global Settings
+   ========================================================================== */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    box-shadow: none;
+    text-shadow: none;
+    color: @matugen-accent;
+}
+
+/* Base Bar Container */
+window#waybar {
+    background: @bg-dark;
+    border: 0px solid @matugen-accent;
+    color: @matugen-accent;
+    border-radius: 12px;
+}
+
+/* Common Module Padding & Margin */
+#workspaces,
+#mpris,
+#custom-cava,
+#clock,
+#cpu,
+#custom-gpu,
+#temperature,
+#power-profiles-daemon,
+#backlight,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#custom-notification,
+#custom-power {
+    background: transparent;
+    padding: 0px 8px;
+    margin: 0px 2px;
+    color: @matugen-accent;
+}
+
+/* ==========================================================================
+   Left Modules: Workspaces
+   ========================================================================== */
+#workspaces {
+    background: transparent;
+    padding: 3px;
+    margin-right: 12px;
+}
+
+#workspaces button {
+    padding: 0px 1px;
+    color: @matugen-accent; 
+    border-radius: 6px;
+    background: transparent;
+    font-size: 11px;
+}
+
+
+/* ==========================================================================
+   Media Player & CAVA
+   ========================================================================== */
+#mpris {
+    color: @matugen-accent;
+    font-style: normal;
+}
+
+#custom-cava {
+    color: @matugen-accent;
+    padding: 0px 6px;
+}
+
+/* ==========================================================================
+   Center Module: Clock
+   ========================================================================== */
+#clock {
+    color: @matugen-accent;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   Right Modules: System Stats & Hardware
+   ========================================================================== */
+#cpu,
+#custom-gpu,
+#temperature,
+#power-profiles-daemon,
+#backlight,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#custom-notification {
+    color: @matugen-accent;
+}
+
+/* Status Alert Overrides */
+#temperature.critical,
+#network.disconnected,
+#battery.critical:not(.charging),
+#custom-power {
+    color: @matugen-accent;
+}
+
+#pulseaudio.muted,
+#bluetooth.disabled {
+    color: @matugen-accent;
+}
+
+#custom-power {
+    padding-right: 12px;
+    color: @matugen-accent;
+}

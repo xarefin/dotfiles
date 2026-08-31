@@ -1,0 +1,30 @@
+{
+    "label" : "lock",
+    "action" : "loginctl lock-session",
+    "text" : "Lock"
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot"
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "Shutdown"
+}
+{
+    "label" : "logout",
+    "action" : "loginctl kill-session $XDG_SESSION_ID",
+    "text" : "Logout"
+}
+{
+    "label" : "suspend",
+    "action" : "sh -c 'systemctl suspend'",
+    "text" : "Suspend"
+}
+{
+    "label" : "hibernate",
+    "action" : "sh -c 'systemctl hibernate'",
+    "text" : "Hibernate"
+}
