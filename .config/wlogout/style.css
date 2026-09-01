@@ -5,7 +5,7 @@
 }
 
 window {
-    background-color: rgba(14, 21, 19, 0.45);
+    background-color: rgba(18, 19, 24, 0.45);
 }
 
 button {
@@ -13,7 +13,7 @@ button {
     border: none;
     text-decoration-color: #FFFFFF;
     color: #FFFFFF;
-    background-color: rgba(27, 33, 31, 0.6);
+    background-color: rgba(30, 31, 37, 0.6);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 25%;
@@ -25,7 +25,7 @@ button {
 
 /* Combined focus and hover so arrow keys trigger the same animation and color */
 button:focus, button:hover {
-    background-color: rgba(132, 214, 194, 0.15);
+    background-color: rgba(176, 198, 255, 0.15);
     background-size: 32%;
     border: none;
     outline: none;
@@ -33,7 +33,7 @@ button:focus, button:hover {
 }
 
 button:active {
-    background-color: rgba(132, 214, 194, 0.25);
+    background-color: rgba(176, 198, 255, 0.25);
     border: none;
     outline: none;
     box-shadow: none;

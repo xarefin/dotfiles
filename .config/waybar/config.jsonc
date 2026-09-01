@@ -139,7 +139,8 @@
         "format": "{icon} {percent}%",
         "format-icons": ["󰃞", "󰃟", "󰃠"],
         "on-scroll-up": "brightnessctl set +5%",
-        "on-scroll-down": "brightnessctl set 5%-"
+        "on-scroll-down": "brightnessctl set 5%-",
+        "on-click": "kitty brightness-tui"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -165,7 +166,7 @@
         "format-disconnected": "󰖪 Offline",
         "tooltip-format": "{ifname} via {gwaddr}\nIP: {ipaddr}/{cidr}\nSignal: {signaldBm}dBm ({signalStrength}%)",
         "on-click": "kitty impala",
-        "on-click-right": "kitty --title nmtui sh -c 'nmtui'"
+        "on-click-right": "kitty bandwhich"
     },
     "bluetooth": {
         "format": "󰂯 {status}",

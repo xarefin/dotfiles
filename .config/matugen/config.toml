@@ -60,3 +60,12 @@ post_hook = 'swaync-client -rs'
 input_path = '~/.config/matugen/templates/waybar.css'
 output_path = '~/.config/waybar/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar && ~/.config/hypr/scripts/refresh.sh'
+
+[templates.obs]
+input_path = '~/.config/matugen/templates/obs.obt'
+output_path = '~/.config/obs-studio/themes/matugen.obt'
+
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'pkill -USR2 btop'

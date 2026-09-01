@@ -240,7 +240,7 @@ trough highlight {
   padding: 4px;
   background: @accent_color;
   border-radius: 10px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+  box-shadow: none;
   transition: all 0.7s ease;
 }
 
@@ -288,128 +288,169 @@ scale slider {
 
 /* ── 7. Notification Center ─────────────────────────────────────── */
 .control-center-list {
-  padding-bottom: 1px;
+  padding: 6px;
   background-color: transparent;
 }
 .control-center .notification-row {
-  margin-bottom: 8px;
+  outline: none;
+  margin: 0 0 8px 0;
+  padding: 0px;
 }
 .control-center .notification-background {
   background-color: @rofi_blur_bg;
   border: none;
-  padding: 12px;
-  border-radius: 10px;
+  box-shadow: none;
+  border-radius: 12px;
+  margin: 0px;
+  padding: 4px;
   transition: background-color 0.15s ease;
   backdrop-filter: blur(25px);          
   -webkit-backdrop-filter: blur(25px);
 }
 .control-center .notification-row:hover .notification-background {
-  border-radius: 10px;
   background-color: @rofi_blur_hover;
+  border: none;
+  box-shadow: none;
 }
-.control-center .notification .summary {
+.control-center .notification {
+  padding: 6px;
+  border-radius: 8px;
+  background: transparent;
+}
+.control-center .notification.critical {
+  border: none;
+}
+.control-center .notification .notification-content {
+  margin: 4px;
+  background: transparent;
+}
+.control-center .image {
+  margin: 0 12px 0 4px;
+  border-radius: 8px;
+}
+.control-center .summary {
   font-weight: 600;
+  font-size: 14px;
   color: @theme_fg;
-  margin-bottom: 3px;
+  background: transparent;
 }
-.control-center .notification .body {
-  color: @theme_fg_secondary;
-}
-.control-center .notification .time {
+.control-center .body {
   font-size: 13px;
+  color: @theme_fg_secondary;
+  background: transparent;
+  margin-top: 2px;
+}
+.control-center .time {
+  font-size: 11px;
   font-weight: 500;
   color: @theme_fg_secondary;
-  margin-left: 8px;
-  margin-top: 4px;
+  background: transparent;
+  margin-left: 6px;
 }
 .control-center .close-button {
-  background: transparent;
+  margin: 2px;
+  padding: 4px;
+  border-radius: 8px;
   background-color: transparent;
-  border-radius: 50%;
-  min-width: 20px;
-  min-height: 20px;
+  border: none;
 }
 .control-center .close-button:hover {
-  background: transparent;
-  background-color: transparent;
+  background-color: @button_hover_bg;
 }
 .control-center .close-button image {
-  margin-right: 8px;
   color: @icon_secondary;
 }
-.control-center .notification image {
-  margin-right: 10px;
-  min-width: 32px;
-  min-height: 32px;
-  border-radius: 10px;
+.control-center .notification.critical progress {
+  background-color: @error;
+  border-radius: 4px;
+}
+.control-center .notification.low progress,
+.control-center .notification.normal progress {
+  background-color: @accent_color;
+  border-radius: 4px;
 }
 
 /* ── 8. Floating Notifications ─────────────────────────────────── */
 .floating-notifications .notification-row {
-  margin-bottom: 8px;
+  outline: none;
+  margin: 0 0 8px 0;
+  padding: 0px;
 }
 .floating-notifications .notification-background {
   background-color: @popup_bg;
   border: none;
-  border-radius: 10px;
-  padding: 12px;
-  margin: 4px 10px;
+  box-shadow: none;
+  border-radius: 12px;
+  padding: 4px;
+  margin: 6px;
   transition: background-color 0.15s ease;
   backdrop-filter: blur(25px);          
   -webkit-backdrop-filter: blur(25px);
 }
 .floating-notifications .notification-row:hover .notification-background {
   background-color: alpha(@popup_bg, 0.95);
+  border: none;
+  box-shadow: none;
 }
-.floating-notifications .notification .summary {
-  font-weight: 700;
+.floating-notifications .notification {
+  padding: 6px;
+  border-radius: 8px;
+  background: transparent;
+}
+.floating-notifications .notification.critical {
+  border: none;
+}
+.floating-notifications .notification .notification-content {
+  margin: 4px;
+  background: transparent;
+}
+.floating-notifications .image {
+  margin: 0 12px 0 4px;
+  border-radius: 8px;
+}
+.floating-notifications .summary {
+  font-weight: 600;
+  font-size: 14px;
   color: @theme_fg;
+  background: transparent;
 }
-.floating-notifications .notification .body {
-  color: @theme_fg;
-}
-.floating-notifications .notification .time {
+.floating-notifications .body {
   font-size: 13px;
-  color: @icon_secondary;
-  margin-left: 8px;
-  margin-top: 4px;
+  color: @theme_fg_secondary;
+  background: transparent;
+  margin-top: 2px;
 }
-.floating-notifications .notification image {
-  min-width: 40px;
-  min-height: 40px;
-  margin-right: 10px;
-  border-radius: 10px;
+.floating-notifications .time {
+  font-size: 11px;
+  color: @icon_secondary;
+  background: transparent;
+  margin-left: 6px;
 }
 .floating-notifications .close-button {
-  background: transparent;
+  margin: 2px;
+  padding: 4px;
+  border-radius: 8px;
   background-color: transparent;
-  border-radius: 50%;
-  min-width: 22px;
-  min-height: 22px;
+  border: none;
 }
 .floating-notifications .close-button:hover {
-  background: transparent;
-  background-color: transparent;
+  background-color: @button_hover_bg;
 }
 .floating-notifications .close-button image {
-  margin-right: 8px;
   color: @icon_secondary;
-}
-.floating-notifications .notification-alt-actions {
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: none;
 }
 .floating-notifications .notification-action button,
 .floating-notifications .notification-alt-actions button {
-  font-size: 14px;
+  font-size: 12px;
   color: @theme_fg;
   background-color: @button_bg;
-  border-radius: 10px;
-  padding: 5px 14px;
+  border-radius: 8px;
+  padding: 4px 10px;
+  margin-top: 6px;
+  border: none;
   transition: background-color 0.15s ease;
 }
-.floating-notifications .notification-action button,
+.floating-notifications .notification-action button:hover,
 .floating-notifications .notification-alt-actions button:hover {
   background-color: @button_hover_bg;
 }

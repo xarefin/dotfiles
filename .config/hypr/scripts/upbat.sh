@@ -53,7 +53,7 @@ while true; do
     # 2. Critical Low Battery Warning exclusively at 10%
     if [ "$current_state" -eq 0 ]; then
         if [ "$current_pct" -le 10 ] && [ "$previous_pct" -gt 10 ]; then
-            send_notif "󰂃 Low Battery" "Battery dropped to 10%. Connect your charger immediately!\n$time_info" "critical"
+            send_notif "󰂃 Low Battery" "Battery at 10% — plug in your charger now!" "critical"
         fi
     fi
 
