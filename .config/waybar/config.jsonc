@@ -95,6 +95,7 @@
                 "today": "<span color='#ff6666'><b><u>{}</u></b></span>"
             }
         },
+        "on-click-right": "kitty tty-clock -c -t -s",
         "actions": {
             "on-click-right": "mode",
             "on-scroll-up": "shift_up",
@@ -138,8 +139,8 @@
     "backlight": {
         "format": "{icon} {percent}%",
         "format-icons": ["󰃞", "󰃟", "󰃠"],
-        "on-scroll-up": "brightnessctl set +5%",
-        "on-scroll-down": "brightnessctl set 5%-",
+        "on-scroll-up": "brightnessctl set +1%",
+        "on-scroll-down": "brightnessctl set 1%-",
         "on-click": "kitty brightness-tui"
     },
     "pulseaudio": {
@@ -157,8 +158,8 @@
         },
         "on-click": "kitty wiremix",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%"
     },
     "network": {
         "format-wifi": "  {essid}",
