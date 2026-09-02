@@ -3,19 +3,14 @@
     "logo": {
         "source": "arch_small",
         "padding": {
-            "top": 4,
-            "right": 6
+            "top": 2,
+             "left": 2
         }
     },
     "display": {
         "separator": " "
     },
     "modules": [
-        "break",
-        {
-            "type": "title",
-            "keyWidth": 10
-        },
         "break",
         {
             "type": "os",
