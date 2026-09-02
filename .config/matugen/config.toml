@@ -102,10 +102,6 @@ compare_to = "{{ colors.primary.default.hex }}"
 post_hook = 'nohup sudo -n papirus-folders -C {{ closest_color }} -u > /dev/null 2>&1 &'
 index = 1
 
-[templates.yazi]
-input_path = '~/.config/matugen/templates/yazi.toml'
-output_path = '~/.config/yazi/theme.toml'
-
 [templates.obsidian]
 input_path = '~/.config/matugen/templates/obsidian.css'
 output_path = '/home/arefin/Documents/Obsidian Vault/.obsidian/themes/matugen-dynamic.css'
