@@ -113,3 +113,13 @@ hl.bind("SUPER + x", hl.dsp.exec_cmd("~/.config/hypr/scripts/emoji.sh"))
 
 
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd('rofi -show wallpaper -modi "wallpaper:' .. os.getenv("HOME") .. '/.config/hypr/scripts/paper.sh" -theme-str "mainbox { children: [ \\"inputbar\\", \\"listview\\" ]; } listview { columns: 2; lines: 3; spacing: 12px; } element-text { enabled: false; } element-icon { size: 144px; horizontal-align: 0.5; } element { orientation: vertical; padding: 7px; }"'))
+
+
+
+
+
+-- Resize windows with SUPER + SHIFT + Arrow Keys
+hl.bind(mainMod .. " + SHIFT + left",  function() hl.dispatch(hl.dsp.window.resize({ x = -50, y = 0, relative = true })) end, { repeating = true })
+hl.bind(mainMod .. " + SHIFT + right", function() hl.dispatch(hl.dsp.window.resize({ x = 50, y = 0, relative = true })) end, { repeating = true })
+hl.bind(mainMod .. " + SHIFT + up",    function() hl.dispatch(hl.dsp.window.resize({ x = 0, y = -50, relative = true })) end, { repeating = true })
+hl.bind(mainMod .. " + SHIFT + down",  function() hl.dispatch(hl.dsp.window.resize({ x = 0, y = 50, relative = true })) end, { repeating = true })

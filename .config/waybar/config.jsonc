@@ -145,7 +145,7 @@
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-bluetooth": " {volume}%",
+        "format-bluetooth": "󰋎 {volume}%",
         "format-muted": "󰝟 Muted",
         "format-icons": {
             "headphone": "",
@@ -164,16 +164,17 @@
     "network": {
         "format-wifi": "  {essid}",
         "format-ethernet": "󰈀 Wired",
-        "format-disconnected": "󰖪 Offline",
+        "format-disconnected": "󰖪 Off",
         "tooltip-format": "{ifname} via {gwaddr}\nIP: {ipaddr}/{cidr}\nSignal: {signaldBm}dBm ({signalStrength}%)",
         "on-click": "kitty impala",
         "on-click-right": "kitty bandwhich"
     },
     "bluetooth": {
-        "format": "󰂯 {status}",
+        "format": "󰂯 ON",
+        "format-off": "󰂲 OFF",
         "format-disabled": "󰂲 OFF",
-        "format-connected": " {num_connections}",
-        "format-connected-battery": " {num_connections}",
+        "format-connected": "󰂱 {num_connections}",
+        "format-connected-battery": "󰂱 {num_connections}",
         "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected:\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
