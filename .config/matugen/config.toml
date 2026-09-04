@@ -109,3 +109,5 @@ output_path = '/home/arefin/Documents/Obsidian Vault/.obsidian/themes/matugen-dy
 [templates.vesktop]
 input_path = '~/.config/matugen/templates/midnight-discord.css'
 output_path = '~/.config/vesktop/themes/matugen.css'
+
+

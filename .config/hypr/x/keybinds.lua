@@ -39,18 +39,13 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
--- switch workspaces with tab 
-hl.bind(mainMod .. " + Tab", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.window.move({ workspace = "e+1" }))
 
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + SHIFT + M",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + M", hl.dsp.window.move({ workspace = "special:magic" }))
 
--- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
@@ -95,20 +90,6 @@ hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 hl.bind("CTRL + SHIFT + S", hl.dsp.exec_cmd([[hyprshot -m region --raw | satty --filename - --output-filename /home/arefin/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png]]))
 
 
-
--- Clipboard --
-
--- SUPER + V: Hide ID numbers and auto-paste selected item
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -display-columns 2 -p 'Clipboard' | cliphist decode | wl-copy && wtype -M shift -k Insert -m shift"))
-
--- SUPER + SHIFT + V: Wipe History safely
-hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("cliphist wipe && notify-send 'Clipboard Cleared'"))
-
-
--- ALT + Delete: Delete active copied item from database AND clear system clipboard
-hl.bind("ALT + Delete", hl.dsp.exec_cmd("cliphist list | head -n 1 | cliphist delete && wl-copy --clear && notify-send 'Clipboard Item Deleted'"))
-
-
 hl.bind("SUPER + x", hl.dsp.exec_cmd("~/.config/hypr/scripts/emoji.sh"))
 
 
@@ -123,3 +104,60 @@ hl.bind(mainMod .. " + SHIFT + left",  function() hl.dispatch(hl.dsp.window.resi
 hl.bind(mainMod .. " + SHIFT + right", function() hl.dispatch(hl.dsp.window.resize({ x = 50, y = 0, relative = true })) end, { repeating = true })
 hl.bind(mainMod .. " + SHIFT + up",    function() hl.dispatch(hl.dsp.window.resize({ x = 0, y = -50, relative = true })) end, { repeating = true })
 hl.bind(mainMod .. " + SHIFT + down",  function() hl.dispatch(hl.dsp.window.resize({ x = 0, y = 50, relative = true })) end, { repeating = true })
+
+
+
+-- SUPER + V: Select, auto-paste, and notify
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/clip.sh paste"))
+
+-- SUPER + SHIFT + V: Wipe history with icon notification
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/clip.sh wipe"))
+
+-- ALT + Delete: Delete latest item with icon notification
+hl.bind("ALT + Delete", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/clip.sh delete"))
+
+
+
+
+
+
+
+
+
+
+
+-- Cycle workspaces forward with Tab (loops 1 -> 10 -> 1)
+hl.bind(mainMod .. " + Tab", function()
+    local ws = hl.get_active_workspace()
+    if not ws then return end
+    local target = ws.id + 1
+    if target > 10 then target = 1 end
+    hl.dispatch(hl.dsp.focus({ workspace = target }))
+end)
+
+-- Move active window forward with SHIFT + Tab (loops 1 -> 10 -> 1)
+hl.bind(mainMod .. " + SHIFT + Tab", function()
+    local ws = hl.get_active_workspace()
+    if not ws then return end
+    local target = ws.id + 1
+    if target > 10 then target = 1 end
+    hl.dispatch(hl.dsp.window.move({ workspace = target }))
+end)
+
+-- Scroll down: go forward through workspaces (loops 1 -> 10 -> 1)
+hl.bind(mainMod .. " + mouse_down", function()
+    local ws = hl.get_active_workspace()
+    if not ws then return end
+    local target = ws.id + 1
+    if target > 10 then target = 1 end
+    hl.dispatch(hl.dsp.focus({ workspace = target }))
+end)
+
+-- Scroll up: go backward through workspaces (loops 10 -> 1 -> 10)
+hl.bind(mainMod .. " + mouse_up", function()
+    local ws = hl.get_active_workspace()
+    if not ws then return end
+    local target = ws.id - 1
+    if target < 1 then target = 10 end
+    hl.dispatch(hl.dsp.focus({ workspace = target }))
+end)

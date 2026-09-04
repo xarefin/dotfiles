@@ -30,20 +30,21 @@
     
     // Modules configuration
     "hyprland/workspaces": {
-        "active-only": false,
-        "all-outputs": true,
-        "disable-scroll": false,
-        "format": "{icon}",
-        "on-click": "activate",
-        "persistent-workspaces": {
-            "*": 10
-        },
-        "format-icons": {
-            "default": "",
-            "active": "",
-            "urgent": ""
-        }
+    "active-only": false,
+    "all-outputs": true,
+    "disable-scroll": false,
+    "format": "{icon}",
+    "on-click": "activate",
+    "persistent-workspaces": {
+        "*": 10
     },
+    "format-icons": {
+        "default": "", 
+        "active": "",
+        "empty": "",
+        "urgent": ""
+    }
+},
     "mpris": {
     "format": "{player_icon} {title} - {artist}",
     "format-paused": "{status_icon} {title} - {artist}",
@@ -67,7 +68,7 @@
         "vlc": "󰕼"
     },
         "status-icons": {
-            "paused": "󰏤"
+            "paused": ""
         },
         "on-click": "playerctl play-pause",
         "on-click-right": "playerctl next",
