@@ -2,8 +2,8 @@
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 # Rofi Emoticons. Not my own. Cant remember the source
 
-# 1. Show rofi, extract the emoji, and copy to clipboard
-selected=$(sed '1,/^#  DATA #$/d' "$0" | rofi -dmenu -p "emoji" | cut -d ' ' -f 1)
+# 1. Format input: keep text searchable but display only the emoji icon
+selected=$(sed '1,/^#  DATA #$/d' "$0" | awk '{print $0 "\0display\x1f" $1}' | rofi -dmenu -p "emoji" -theme-str 'listview { columns: 5; lines: 10; fixed-columns: true; } element-text { horizontal-align: 0.0; font: "JetBrainsMono Nerd Font 17"; }' | cut -d ' ' -f 1)
 
 # 2. If an emoji was selected, copy and paste it
 if [ -n "$selected" ]; then

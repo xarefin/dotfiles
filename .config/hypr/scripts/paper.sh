@@ -52,6 +52,11 @@ if [ "$ROFI_RETV" -eq 1 ] && [ -n "$1" ]; then
         # Copy image in background silently
         cp "$image_path" "$HOME/.cache/log.png" >/dev/null 2>&1 &
 
+        # Sync image to SDDM silently in background with ownership and permissions
+        sudo cp "$image_path" /usr/share/sddm/themes/sword/arch.png >/dev/null 2>&1
+        sudo chown root:root /usr/share/sddm/themes/sword/arch.png >/dev/null 2>&1
+        sudo chmod 644 /usr/share/sddm/themes/sword/arch.png >/dev/null 2>&1 &
+
         # Run color update detached completely discarding output
         ( apply_colors "$image_path" ) >/dev/null 2>&1 &
         disown
