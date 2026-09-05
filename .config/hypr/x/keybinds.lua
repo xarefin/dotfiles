@@ -142,13 +142,14 @@ hl.bind("XF86AudioPrev",               hl.dsp.exec_cmd("playerctl previous"),   
 ---- UTILITIES ------
 ---------------------
 
--- Screenshots & Satty
-hl.bind("CTRL + SHIFT + S", hl.dsp.exec_cmd([[hyprshot -m region --raw | satty --filename - --output-filename /home/arefin/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png --early-exit --actions-on-enter save-to-clipboard --copy-command 'wl-copy']]))
+-- Screenshots & Satty (Region with freeze)
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | satty --filename - --output-filename /home/arefin/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png --early-exit --actions-on-enter save-to-clipboard --copy-command 'wl-copy']]))
 
+-- Screenshots & Satty (Active Window)
+hl.bind("CTRL + SHIFT + S", hl.dsp.exec_cmd([[grim -g "$(hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')" - | satty --filename - --output-filename /home/arefin/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png --early-exit --actions-on-enter save-to-clipboard --copy-command 'wl-copy']]))
 
-
-
-
+-- Screenshots & Satty (Full Screen)
+hl.bind("CTRL + SHIFT + F", hl.dsp.exec_cmd([[grim - | satty --filename - --output-filename /home/arefin/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png --early-exit --actions-on-enter save-to-clipboard --copy-command 'wl-copy']]))
 
 -- Emoji Picker
 hl.bind("SUPER + x",                   hl.dsp.exec_cmd("~/.config/hypr/scripts/emoji.sh"))
@@ -160,6 +161,15 @@ hl.bind(mainMod .. " + W",             hl.dsp.exec_cmd('rofi -show wallpaper -mo
 hl.bind(mainMod .. " + V",             hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/clip.sh paste"))
 hl.bind(mainMod .. " + SHIFT + V",     hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/clip.sh wipe"))
 hl.bind("ALT + Delete",                hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/clip.sh delete"))
+
+
+
+
+
+
+
+
+
 
 
 
