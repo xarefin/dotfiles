@@ -23,7 +23,6 @@ post_hook = 'pkill -USR1 cava'
 input_path = '~/.config/matugen/templates/rofi.rasi'
 output_path = '~/.config/rofi/colors.rasi'
 
-
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk.css'
 output_path = '~/.config/gtk-3.0/gtk.css'
@@ -34,9 +33,6 @@ input_path = '~/.config/matugen/templates/gtk.css'
 output_path = '~/.config/gtk-4.0/gtk.css'
 post_hook = '~/.config/hypr/scripts/reload-gtk.sh'
 
-[templates.kvantum]
-input_path = '~/.config/matugen/templates/kvantum.kvconfig'
-output_path = '~/.config/Kvantum/Matugen/Matugen.kvconfig'
 
 [templates.qt5]
 input_path = '~/.config/matugen/templates/qt_colors.conf'
@@ -69,7 +65,6 @@ output_path = '~/.config/obs-studio/themes/matugen.obt'
 input_path = '~/.config/matugen/templates/btop.theme'
 output_path = '~/.config/btop/themes/matugen.theme'
 post_hook = 'pkill -USR2 btop'
-
 
 [templates.papirus-folders]
 input_path = '~/.config/matugen/templates/papirus-color'
@@ -118,3 +113,20 @@ post_hook = 'nohup ~/.config/hypr/scripts/spotify-check.sh >/dev/null 2>&1 &'
 [templates.vscode]
 input_path = "~/.config/matugen/templates/vscode-colors.json" 
 output_path = "~/.cache/matugen/vscode-colors"
+
+
+
+
+
+
+
+
+[templates.kvantum_kvconfig]
+input_path = '~/.config/matugen/templates/kvantum-colors.kvconfig'
+output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
+
+[templates.kvantum_svg]
+input_path = '~/.config/matugen/templates/kvantum-colors.svg'
+output_path = '~/.config/Kvantum/matugen/matugen.svg'
+
+
