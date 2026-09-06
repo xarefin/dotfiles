@@ -1,14 +1,14 @@
 [General]
 # Matugen template for Kvantum
-window.color=#0e1513
-base.color=#1b211f
-alt.base.color=#171d1b
-text.color=#dee4e0
-disabled.text.color=#89938f
-button.color=#252b29
-button.text.color=#dee4e0
-highlight.color=#84d6c2
-highlight.text.color=#00382e
-tooltip.background.color=#1b211f
-tooltip.text.color=#dee4e0
-link.color=#84d6c2
+window.color=#1a1111
+base.color=#271d1d
+alt.base.color=#221919
+text.color=#f0dede
+disabled.text.color=#a08c8c
+button.color=#322827
+button.text.color=#f0dede
+highlight.color=#ffb3b3
+highlight.text.color=#561d21
+tooltip.background.color=#271d1d
+tooltip.text.color=#f0dede
+link.color=#ffb3b3
