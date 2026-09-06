@@ -110,4 +110,7 @@ output_path = '/home/arefin/Documents/Obsidian Vault/.obsidian/themes/matugen-dy
 input_path = '~/.config/matugen/templates/midnight-discord.css'
 output_path = '~/.config/vesktop/themes/matugen.css'
 
-
+[templates.spicetify]
+input_path = '~/.config/matugen/templates/spotify-colors.ini'
+output_path = '~/.config/spicetify/Themes/Sleek/color.ini'
+post_hook = "nohup ~/.config/hypr/scripts/spotify-check.sh >/dev/null 2>&1 &"

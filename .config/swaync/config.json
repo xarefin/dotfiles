@@ -107,7 +107,7 @@
           "tooltip": "Lock Screen"
         },
         {
-          "label": "󰛐",
+          "label": "󰅶",
           "command": "~/.config/hypr/scripts/caffeine.sh",
           "type": "toggle",
           "tooltip": "Caffeine"

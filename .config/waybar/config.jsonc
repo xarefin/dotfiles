@@ -58,15 +58,15 @@
     "tooltip": true,
     "tooltip-format": "{status_icon} {title} - {artist}\nLeft: previous | Middle: play/pause | Right: next",
     "player-icons": {
-        "chromium": "",
+        "chromium": " ",
         "default": "󰎈",
-        "firefox": "",
+        "firefox": " ",
         "kdeconnect": "",
-        "mopidy": "",
-        "mpv": "󰐹",
-        "spotify": "",
-        "vlc": "󰕼",
-        "brave": ""
+        "mopidy": " ",
+        "mpv": "󰐹 ",
+        "spotify": " ",
+        "vlc": "󰕼 ",
+        "brave": " "
     },
         "status-icons": {
             "paused": ""

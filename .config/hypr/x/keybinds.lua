@@ -6,8 +6,9 @@ local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "rofi -show drun"
 local mainMod     = "SUPER" -- Sets "Windows" key as main modifier
-local browser     = "firefox"
-local browserz       = "brave"
+local browsern     = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox"
+local browser       = "brave"
+
 ---------------------
 ---- CORE BINDS -----
 ---------------------
@@ -19,7 +20,7 @@ hl.bind(mainMod .. " + Escape",        hl.dsp.exec_cmd("hyprlock -c ~/.config/hy
 hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + SHIFT + Q",     hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/kill.sh"))
 hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.exec_cmd(browser)                              )
-hl.bind(mainMod .. " + CTRL + SHIFT + Return", hl.dsp.exec_cmd(browserz))
+hl.bind(mainMod .. " + SHIFT + CTRL + Return", hl.dsp.exec_cmd(browsern))
 
 ---------------------
 --- WINDOW MANAGEMENT
