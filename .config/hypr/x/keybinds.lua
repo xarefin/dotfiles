@@ -6,8 +6,8 @@ local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "rofi -show drun"
 local mainMod     = "SUPER" -- Sets "Windows" key as main modifier
-
-
+local browser     = "firefox"
+local browserz       = "brave"
 ---------------------
 ---- CORE BINDS -----
 ---------------------
@@ -18,7 +18,8 @@ hl.bind(mainMod .. " + Space",         hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + Escape",        hl.dsp.exec_cmd("hyprlock -c ~/.config/hypr/hyprlock.conf"))
 hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + SHIFT + Q",     hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/kill.sh"))
-
+hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.exec_cmd(browser)                              )
+hl.bind(mainMod .. " + CTRL + SHIFT + Return", hl.dsp.exec_cmd(browserz))
 
 ---------------------
 --- WINDOW MANAGEMENT
@@ -29,6 +30,11 @@ hl.bind(mainMod .. " + F",             hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + P",             hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + R",             hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SHIFT + F",     hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/close-all.sh"))
+hl.bind(mainMod .. " + ALT + F",       hl.dsp.window.fullscreen({ mode = "maximized" }))
+hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen_state({ internal = 0, client = 2, action = "toggle" }))
+
+
 
 
 ---------------------
@@ -163,24 +169,15 @@ hl.bind(mainMod .. " + SHIFT + V",     hl.dsp.exec_cmd(os.getenv("HOME") .. "/.c
 hl.bind("ALT + Delete",                hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/clip.sh delete"))
 
 
+-- Text Reco
+-- OCR Text Recognition Shortcut
+hl.bind("CTRL + SHIFT + X", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | tesseract stdin stdout | wl-copy && notify-send "OCR" "Text copied to clipboard"]]))
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+hl.bind(mainMod .. " + O", hl.dsp.dpms({ action = "toggle" }))
 
 
 

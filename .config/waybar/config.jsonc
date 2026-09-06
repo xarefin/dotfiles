@@ -65,7 +65,8 @@
         "mopidy": "",
         "mpv": "󰐹",
         "spotify": "",
-        "vlc": "󰕼"
+        "vlc": "󰕼",
+        "brave": ""
     },
         "status-icons": {
             "paused": ""
