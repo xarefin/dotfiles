@@ -3,19 +3,19 @@
 * Generated with Matugen
 */
 
-@define-color accent_color #abc7ff;
-@define-color accent_fg_color #001b3f;
-@define-color accent_bg_color #abc7ff;
-@define-color window_bg_color #111318;
-@define-color window_fg_color #e2e2e9;
-@define-color headerbar_bg_color #111318;
-@define-color headerbar_fg_color #e2e2e9;
-@define-color popover_bg_color #111318;
-@define-color popover_fg_color #e2e2e9;
-@define-color view_bg_color #111318;
-@define-color view_fg_color #e2e2e9;
-@define-color card_bg_color #111318;
-@define-color card_fg_color #e2e2e9;
+@define-color accent_color #a1c9fd;
+@define-color accent_fg_color #001c37;
+@define-color accent_bg_color #a1c9fd;
+@define-color window_bg_color #111418;
+@define-color window_fg_color #e1e2e8;
+@define-color headerbar_bg_color #111418;
+@define-color headerbar_fg_color #e1e2e8;
+@define-color popover_bg_color #111418;
+@define-color popover_fg_color #e1e2e8;
+@define-color view_bg_color #111418;
+@define-color view_fg_color #e1e2e8;
+@define-color card_bg_color #111418;
+@define-color card_fg_color #e1e2e8;
 @define-color sidebar_bg_color @window_bg_color;
 @define-color sidebar_fg_color @window_fg_color;
 @define-color sidebar_border_color @window_bg_color;
@@ -27,21 +27,21 @@
 /* Selection and Highlight Colors */
 selection, 
 .selection {
-  background-color: #d7e2ff;
-  color: #001b3f;
+  background-color: #d2e4ff;
+  color: #001c37;
 }
 
 /* Row and List Hover States */
 row:hover, 
 modelbutton:hover, 
 button:hover {
-  background-color: #282a2f;
+  background-color: #272a2f;
 }
 
 /* Folder/View Specific Backgrounds */
 iconview, 
 textview, 
 list {
-  background-color: #111318;
-  color: #e2e2e9;
+  background-color: #111418;
+  color: #e1e2e8;
 }

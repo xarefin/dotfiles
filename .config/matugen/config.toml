@@ -105,21 +105,9 @@ output_path = '/home/arefin/Documents/Obsidian Vault/.obsidian/themes/matugen-dy
 input_path = '~/.config/matugen/templates/midnight-discord.css'
 output_path = '~/.config/vesktop/themes/matugen.css'
 
-[templates.spicetify]
-input_path = '~/.config/matugen/templates/spotify-colors.ini'
-output_path = '~/.config/spicetify/Themes/Sleek/color.ini'
-post_hook = 'nohup ~/.config/hypr/scripts/spotify-check.sh >/dev/null 2>&1 &'
-
 [templates.vscode]
 input_path = "~/.config/matugen/templates/vscode-colors.json" 
 output_path = "~/.cache/matugen/vscode-colors"
-
-
-
-
-
-
-
 
 [templates.kvantum_kvconfig]
 input_path = '~/.config/matugen/templates/kvantum-colors.kvconfig'
@@ -130,3 +118,7 @@ input_path = '~/.config/matugen/templates/kvantum-colors.svg'
 output_path = '~/.config/Kvantum/matugen/matugen.svg'
 
 
+[templates.spicetify]
+input_path = '~/.config/matugen/templates/sp.ini'
+output_path = '~/.config/spicetify/Themes/arefin/color.ini'
+post_hook = 'nohup ~/.config/hypr/scripts/spotify-check.sh >/dev/null 2>&1 &'
