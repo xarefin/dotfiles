@@ -14,7 +14,7 @@ local browser       = "brave"
 ---------------------
 
 hl.bind(mainMod .. " + Return",        hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + E",             hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + SHIFT + E",             hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + Space",         hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + Escape",        hl.dsp.exec_cmd("hyprlock -c ~/.config/hypr/hyprlock.conf"))
 hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
@@ -159,7 +159,7 @@ hl.bind("CTRL + SHIFT + S", hl.dsp.exec_cmd([[grim -g "$(hyprctl activewindow -j
 hl.bind("CTRL + SHIFT + F", hl.dsp.exec_cmd([[grim - | satty --filename - --output-filename /home/arefin/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png --early-exit --actions-on-enter save-to-clipboard --copy-command 'wl-copy']]))
 
 -- Emoji Picker
-hl.bind("SUPER + x",                   hl.dsp.exec_cmd("~/.config/hypr/scripts/emoji.sh"))
+hl.bind("SUPER + E",                   hl.dsp.exec_cmd("~/.config/hypr/scripts/emoji.sh"))
 
 -- Wallpaper Picker (Rofi)
 hl.bind(mainMod .. " + W",             hl.dsp.exec_cmd('rofi -show wallpaper -modi "wallpaper:' .. os.getenv("HOME") .. '/.config/hypr/scripts/paper.sh" -theme-str "mainbox { children: [ \\"inputbar\\", \\"listview\\" ]; } listview { columns: 2; lines: 3; spacing: 12px; } element-text { enabled: false; } element-icon { size: 144px; horizontal-align: 0.5; } element { orientation: vertical; padding: 7px; }"'))
@@ -184,7 +184,8 @@ hl.bind(mainMod .. " + O", hl.dsp.dpms({ action = "toggle" }))
 
 
 
-
-
-
-
+hl.bind(mainMod .. " + X", function()
+    local current = hl.get_config("general.layout")
+    local target = (current == "dwindle") and "scrolling" or "dwindle"
+    hl.config({ general = { layout = target } })
+end)

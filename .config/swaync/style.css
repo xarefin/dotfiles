@@ -42,7 +42,7 @@
   font-size: 15px;
   color: @theme_fg;
   border: none;
-  border-radius: 0;
+  border-radius: 20px;
   background: none;
   padding: 0;
   margin: 0;
@@ -55,7 +55,7 @@
 .control-center {
   background-color: @theme_bg;
   border: none;
-  border-radius: 10px;                 /* Fully rounded corners for floating layout */
+  border-radius: 20px;                 /* Fully rounded corners for floating layout */
   padding: 10px;
   min-width: 380px;
   margin-top: 10px;                    /* Clears Waybar nicely */
@@ -69,7 +69,7 @@
 .widget-buttons-grid,
 .control-center-list > box > *:not(.widget-title) {
   background-color: @module_bg;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 12px;
   margin-bottom: 8px;
   border: none;
@@ -80,7 +80,7 @@
 .widget-backlight,
 .widget-buttons-grid {
   background-color: @custom_accent_low;
-  border-radius: 10px;
+  border-radius: 20px;
   border: none;
   backdrop-filter: blur(35px);
   -webkit-backdrop-filter: blur(35px);
@@ -120,7 +120,7 @@
   color: @theme_fg;
   background-color: @button_bg;
   border: none;
-  border-radius: 14px;
+  border-radius: 20px;
   padding: 4px 12px;
   transition: background-color 0.15s ease;
 }
@@ -133,12 +133,12 @@
 .widget-mpris {
   padding: 0;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   background: transparent;
 }
 .widget-mpris .widget-mpris-player {
   background-color: @mpris_player_bg;
-  border-radius: 10px;
+  border-radius: 20px;
   border: none;
   padding: 12px;
 }
@@ -146,7 +146,7 @@
   background: none;
   min-width: 55px;
   min-height: 55px;
-  border-radius: 16px;
+  border-radius: 20px;
   margin-right: 12px;
 }
 
@@ -180,7 +180,7 @@
 .widget-mpris .widget-mpris-player button {
   all: unset;
   background: transparent;
-  border-radius: 50%;
+  border-radius: 20px;
   padding: 5px;
   color: @icon_secondary;
   font-size: 14px;
@@ -221,13 +221,13 @@ scale {
 
 scale trough {
   min-height: 6px;
-  border-radius: 3px;
+  border-radius: 20px;
   background-color: @slider_trough_bg;
 }
 
 scale trough progress {
   min-height: 6px;
-  border-radius: 3px;
+  border-radius: 20px;
   background-color: @accent_color;
   transition: background-color 0.15s ease;
 }
@@ -239,7 +239,7 @@ scale:hover trough progress {
 trough highlight {
   padding: 4px;
   background: @accent_color;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: none;
   transition: all 0.7s ease;
 }
@@ -247,7 +247,7 @@ trough highlight {
 scale slider {
   min-width: 10px;
   min-height: 10px;
-  border-radius: 5px;
+  border-radius: 20px;
   background-color: @slider_thumb_bg;
 }
 
@@ -300,7 +300,7 @@ scale slider {
   background-color: @rofi_blur_bg;
   border: none;
   box-shadow: none;
-  border-radius: 12px;
+  border-radius: 20px;
   margin: 0px;
   padding: 4px;
   transition: background-color 0.15s ease;
@@ -314,7 +314,7 @@ scale slider {
 }
 .control-center .notification {
   padding: 6px;
-  border-radius: 8px;
+  border-radius: 20px;
   background: transparent;
 }
 .control-center .notification.critical {
@@ -326,7 +326,7 @@ scale slider {
 }
 .control-center .image {
   margin: 0 12px 0 4px;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 .control-center .summary {
   font-weight: 600;
@@ -350,7 +350,7 @@ scale slider {
 .control-center .close-button {
   margin: 2px;
   padding: 4px;
-  border-radius: 8px;
+  border-radius: 20px;
   background-color: transparent;
   border: none;
 }
@@ -362,12 +362,12 @@ scale slider {
 }
 .control-center .notification.critical progress {
   background-color: @error;
-  border-radius: 4px;
+  border-radius: 20px;
 }
 .control-center .notification.low progress,
 .control-center .notification.normal progress {
   background-color: @accent_color;
-  border-radius: 4px;
+  border-radius: 20px;
 }
 
 /* ── 8. Floating Notifications ─────────────────────────────────── */
@@ -380,7 +380,7 @@ scale slider {
   background-color: @popup_bg;
   border: none;
   box-shadow: none;
-  border-radius: 12px;
+  border-radius: 20px;
   padding: 4px;
   margin: 6px;
   transition: background-color 0.15s ease;
@@ -394,7 +394,7 @@ scale slider {
 }
 .floating-notifications .notification {
   padding: 6px;
-  border-radius: 8px;
+  border-radius: 20px;
   background: transparent;
 }
 .floating-notifications .notification.critical {
@@ -406,7 +406,7 @@ scale slider {
 }
 .floating-notifications .image {
   margin: 0 12px 0 4px;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 .floating-notifications .summary {
   font-weight: 600;
@@ -429,7 +429,7 @@ scale slider {
 .floating-notifications .close-button {
   margin: 2px;
   padding: 4px;
-  border-radius: 8px;
+  border-radius: 20px;
   background-color: transparent;
   border: none;
 }
@@ -444,7 +444,7 @@ scale slider {
   font-size: 12px;
   color: @theme_fg;
   background-color: @button_bg;
-  border-radius: 8px;
+  border-radius: 20px;
   padding: 4px 10px;
   margin-top: 6px;
   border: none;

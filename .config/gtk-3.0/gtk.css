@@ -3,18 +3,18 @@
 * Generated with Matugen
 */
 
-@define-color accent_color #b0c6ff;
-@define-color accent_fg_color #001944;
-@define-color accent_bg_color #b0c6ff;
-@define-color window_bg_color #121318;
+@define-color accent_color #abc7ff;
+@define-color accent_fg_color #001b3f;
+@define-color accent_bg_color #abc7ff;
+@define-color window_bg_color #111318;
 @define-color window_fg_color #e2e2e9;
-@define-color headerbar_bg_color #121318;
+@define-color headerbar_bg_color #111318;
 @define-color headerbar_fg_color #e2e2e9;
-@define-color popover_bg_color #121318;
+@define-color popover_bg_color #111318;
 @define-color popover_fg_color #e2e2e9;
-@define-color view_bg_color #121318;
+@define-color view_bg_color #111318;
 @define-color view_fg_color #e2e2e9;
-@define-color card_bg_color #121318;
+@define-color card_bg_color #111318;
 @define-color card_fg_color #e2e2e9;
 @define-color sidebar_bg_color @window_bg_color;
 @define-color sidebar_fg_color @window_fg_color;
@@ -27,8 +27,8 @@
 /* Selection and Highlight Colors */
 selection, 
 .selection {
-  background-color: #d9e2ff;
-  color: #001944;
+  background-color: #d7e2ff;
+  color: #001b3f;
 }
 
 /* Row and List Hover States */
@@ -42,6 +42,6 @@ button:hover {
 iconview, 
 textview, 
 list {
-  background-color: #121318;
+  background-color: #111318;
   color: #e2e2e9;
 }
