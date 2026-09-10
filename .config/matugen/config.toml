@@ -1,5 +1,6 @@
 [config]
 
+
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/colors.lua' # Match your actual template filename
 output_path = '~/.config/hypr/colors.lua'             # Put it directly in the hypr folder so require("colors") works
@@ -26,12 +27,12 @@ output_path = '~/.config/rofi/colors.rasi'
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk.css'
 output_path = '~/.config/gtk-3.0/gtk.css'
-post_hook = '~/.config/hypr/scripts/reload-gtk.sh'
+post_hook = '~/.config/hypr/scripts/reload-gtk.sh && systemctl --user restart xdg-desktop-portal xdg-desktop-portal-gtk'
 
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk.css'
 output_path = '~/.config/gtk-4.0/gtk.css'
-post_hook = '~/.config/hypr/scripts/reload-gtk.sh'
+post_hook = '~/.config/hypr/scripts/reload-gtk.sh && systemctl --user restart xdg-desktop-portal xdg-desktop-portal-gtk'
 
 
 [templates.qt5]
