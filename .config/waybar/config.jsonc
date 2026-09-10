@@ -15,13 +15,13 @@
         "clock"
     ],
     "modules-right": [
-        "custom/notification",
         "power-profiles-daemon",
         "cpu",
         "custom/gpu",
         "temperature",
         "backlight",
         "pulseaudio",
+        "custom/notification",
         "bluetooth",
         "network",
         "battery",
@@ -30,44 +30,37 @@
     
     // Modules configuration
     "hyprland/workspaces": {
-    "active-only": false,
-    "all-outputs": true,
-    "disable-scroll": false,
-    "format": "{icon}",
-    "on-click": "activate",
-    "persistent-workspaces": {
-        "*": 10
+        "active-only": false,
+        "all-outputs": true,
+        "disable-scroll": false,
+        "format": "{icon}",
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*": 10
+        },
+        "format-icons": {
+            "default": "", 
+            "active": "",
+            "empty": "",
+            "urgent": ""
+        }
     },
-    "format-icons": {
-        "default": "", 
-        "active": "",
-        "empty": "",
-        "urgent": ""
-    }
-},
     "mpris": {
-    "format": "{player_icon} {title} - {artist}",
-    "format-paused": "{status_icon} {title} - {artist}",
-    "format-no-players": "No player",
-    "max-length": 40,
-    "on-click": "playerctl previous",
-    "on-click-middle": "playerctl play-pause",
-    "on-click-right": "playerctl next",
-    "on-scroll-up": "$HOME/.config/hypr/scripts/volume.sh --inc",
-    "on-scroll-down": "$HOME/.config/hypr/scripts/volume.sh --dec",
-    "tooltip": true,
-    "tooltip-format": "{status_icon} {title} - {artist}\nLeft: previous | Middle: play/pause | Right: next",
-    "player-icons": {
-        "chromium": " ",
-        "default": "󰎈",
-        "firefox": " ",
-        "kdeconnect": "",
-        "mopidy": " ",
-        "mpv": "󰐹 ",
-        "spotify": " ",
-        "vlc": "󰕼 ",
-        "brave": " "
-    },
+        "format": "{player_icon} {title} - {artist}",
+        "format-paused": "{status_icon} {title} - {artist}",
+        "format-no-players": "No player",
+        "max-length": 40,
+        "player-icons": {
+            "chromium": " ",
+            "default": "󰎈",
+            "firefox": " ",
+            "kdeconnect": "",
+            "mopidy": " ",
+            "mpv": "󰐹 ",
+            "spotify": " ",
+            "vlc": "󰕼 ",
+            "brave": " "
+        },
         "status-icons": {
             "paused": ""
         },
@@ -133,9 +126,9 @@
         "tooltip": true,
         "format-icons": {
             "default": "",
-            "performance": " Performance",
-            "balanced": "󰗑 Balanced",
-            "power-saver": "󰌪 Power Saver"
+            "performance": " 100%",
+            "balanced": "󰗑 50%",
+            "power-saver": "󰌪 20%"
         }
     },
     "backlight": {
@@ -199,7 +192,7 @@
         "on-click": "kitty battop"
     },
     "custom/notification": {
-        "format": "{icon}",
+        "format": "{icon} {text}",
         "format-icons": {
             "notification": "󰂚<span foreground='red'><sup></sup></span>",
             "none": "󰂚",
@@ -214,6 +207,7 @@
         "exec-if": "which swaync-client",
         "exec": "swaync-client -swb",
         "on-click": "swaync-client -t -sw",
+        "on-click-middle": "swaync-client -C -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
     },

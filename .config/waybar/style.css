@@ -70,6 +70,11 @@ window#waybar {
     font-size: 11px;
 }
 
+#workspaces button:not(.active) {
+    /* Styles for inactive workspaces */
+    opacity: 0.4;
+}
+
 
 /* ==========================================================================
    Media Player & CAVA
@@ -77,6 +82,7 @@ window#waybar {
 #mpris {
     color: @matugen-accent;
     font-style: normal;
+    padding: 0px 6px;
 }
 
 #custom-cava {
@@ -90,6 +96,7 @@ window#waybar {
 #clock {
     color: @matugen-accent;
     font-weight: bold;
+    padding: 0px 10px;
 }
 
 /* ==========================================================================
@@ -122,6 +129,6 @@ window#waybar {
 }
 
 #custom-power {
-    padding-right: 12px;
+    padding-right: 10px;
     color: @matugen-accent;
 }

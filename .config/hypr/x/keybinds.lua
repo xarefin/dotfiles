@@ -14,7 +14,7 @@ local browser       = "brave"
 ---------------------
 
 hl.bind(mainMod .. " + Return",        hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + SHIFT + E",             hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + SHIFT + F",             hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + Space",         hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + Escape",        hl.dsp.exec_cmd("hyprlock -c ~/.config/hypr/hyprlock.conf"))
 hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
@@ -30,7 +30,7 @@ hl.bind(mainMod .. " + Q",             hl.dsp.window.close())
 hl.bind(mainMod .. " + F",             hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + P",             hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + R",             hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + SHIFT + F",     hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(mainMod .. " + SHIFT + L",     hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/close-all.sh"))
 hl.bind(mainMod .. " + ALT + F",       hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen_state({ internal = 0, client = 2, action = "toggle" }))
@@ -172,9 +172,9 @@ hl.bind("ALT + Delete",                hl.dsp.exec_cmd(os.getenv("HOME") .. "/.c
 
 -- Text Reco
 -- OCR Text Recognition Shortcut
-hl.bind("CTRL + SHIFT + X", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | tesseract stdin stdout | wl-copy && notify-send "OCR" "Text copied to clipboard"]]))
-
-
+hl.bind("CTRL + SHIFT + X", hl.dsp.exec_cmd([[
+  region=$(slurp) && grim -g "$region" - | tesseract stdin stdout | wl-copy && notify-send "⎘ OCR" "Text copied to clipboard"
+]]))
 
 
 
