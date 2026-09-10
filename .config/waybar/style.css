@@ -32,6 +32,7 @@ window#waybar {
 }
 
 /* Common Module Padding & Margin */
+#custom-arch,
 #workspaces,
 #mpris,
 #custom-cava,
@@ -54,8 +55,14 @@ window#waybar {
 }
 
 /* ==========================================================================
-   Left Modules: Workspaces
+   Left Modules: Arch Logo & Workspaces
    ========================================================================== */
+#custom-arch {
+    font-size: 17px;
+    padding: 0px 6px;
+    margin-right: -4px;
+}
+
 #workspaces {
     background: transparent;
     padding: 3px;
@@ -63,7 +70,7 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0px 1px;
+    padding: 0px 0px;
     color: @matugen-accent; 
     border-radius: 6px;
     background: transparent;

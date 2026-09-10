@@ -1,30 +1,30 @@
 /* ==========================================================================
    Active Theme Colors (Used by Waybar)
    ========================================================================== */
-@define-color matugen-accent         #81d3dd;
-@define-color matugen-bg-dot         alpha(#81d3dd, 0.25);
+@define-color matugen-accent         #91cef5;
+@define-color matugen-bg-dot         alpha(#91cef5, 0.25);
 
 /* ==========================================================================
    Full Matugen Palette Library (For Future Use)
    ========================================================================== */
 
 /* --- Primary Palette --- */
-@define-color matugen-primary                #81d3dd;
-@define-color matugen-on-primary             #00363b;
-@define-color matugen-primary-container      #004f56;
-@define-color matugen-on-primary-container   #9df0fa;
+@define-color matugen-primary                #91cef5;
+@define-color matugen-on-primary             #00344b;
+@define-color matugen-primary-container      #004c6b;
+@define-color matugen-on-primary-container   #c6e7ff;
 
 /* --- Secondary Palette --- */
-@define-color matugen-secondary              #b1cbcf;
-@define-color matugen-on-secondary           #1c3437;
-@define-color matugen-secondary-container    #324b4e;
-@define-color matugen-on-secondary-container #cde7eb;
+@define-color matugen-secondary              #b6c9d8;
+@define-color matugen-on-secondary           #20333e;
+@define-color matugen-secondary-container    #374955;
+@define-color matugen-on-secondary-container #d2e5f4;
 
 /* --- Tertiary Palette --- */
-@define-color matugen-tertiary               #b8c6ea;
-@define-color matugen-on-tertiary            #22304c;
-@define-color matugen-tertiary-container     #394764;
-@define-color matugen-on-tertiary-container  #d8e2ff;
+@define-color matugen-tertiary               #cbc1e9;
+@define-color matugen-on-tertiary            #332c4c;
+@define-color matugen-tertiary-container     #4a4263;
+@define-color matugen-on-tertiary-container  #e7deff;
 
 /* --- Error Palette --- */
 @define-color matugen-error                  #ffb4ab;
@@ -33,14 +33,14 @@
 @define-color matugen-on-error-container     #ffdad6;
 
 /* --- Surface & Background --- */
-@define-color matugen-surface                #0e1415;
-@define-color matugen-on-surface             #dee4e4;
-@define-color matugen-surface-variant        #3f484a;
-@define-color matugen-on-surface-variant    #bec8c9;
-@define-color matugen-surface-container      #1a2121;
+@define-color matugen-surface                #0f1417;
+@define-color matugen-on-surface             #dfe3e7;
+@define-color matugen-surface-variant        #41484d;
+@define-color matugen-on-surface-variant    #c1c7ce;
+@define-color matugen-surface-container      #1c2024;
 
 /* --- Outline & Accents --- */
-@define-color matugen-outline                #899294;
-@define-color matugen-outline-variant        #3f484a;
+@define-color matugen-outline                #8b9298;
+@define-color matugen-outline-variant        #41484d;
 @define-color matugen-shadow                 #000000;
 @define-color matugen-scrim                  #000000;

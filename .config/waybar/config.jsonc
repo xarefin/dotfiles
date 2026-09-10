@@ -7,6 +7,7 @@
     "height": 34,
     "reload_style_on_change": true,
     "modules-left": [
+        "custom/arch",
         "hyprland/workspaces",
         "mpris",
         "custom/cava"
@@ -29,6 +30,11 @@
     ],
     
     // Modules configuration
+    "custom/arch": {
+        "format": "󰣇",
+        "tooltip": false,
+        "on-click": "rofi -show drun"
+    },
     "hyprland/workspaces": {
         "active-only": false,
         "all-outputs": true,
@@ -41,7 +47,7 @@
         "format-icons": {
             "default": "", 
             "active": "",
-            "empty": "",
+            "empty": "",
             "urgent": ""
         }
     },
