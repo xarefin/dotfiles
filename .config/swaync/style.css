@@ -21,7 +21,7 @@
 @define-color accent_color_hover    @primary_container;
 
 /* Low-opacity matugen accent color applied to menu, backlight, and sound widgets */
-@define-color custom_accent_low     alpha(@primary, 0.0);
+@define-color custom_accent_low     alpha(@primary, 0.2);
 @define-color custom_accent_hover   alpha(@primary, 0.0);
 
 /* Rofi-level deep blur background for notifications and floating notifications */

@@ -73,18 +73,18 @@
           "type": "toggle",
           "tooltip": "DND"
         },
+       {
+  "label": "☁️",
+  "command": "kitty --hold curl wttr.in/satuta",
+  "tooltip": "Weather"
+},
         {
-          "label": "\uf4bc",
-          "command": "kitty btop",
-          "tooltip": "System Monitor (btop)"
-        },
+  "label": "󰤄",
+  "command": "systemctl suspend",
+  "tooltip": "Sleep"
+},
         {
-          "label": "\uefa7",
-          "command": "~/.config/hypr/scripts/ppdaemon.sh",
-          "tooltip": "Cycle Power Profile"
-        },
-        {
-          "label": "󰝟",
+          "label": "",
           "command": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
           "type": "toggle",
           "tooltip": "Mute Audio"

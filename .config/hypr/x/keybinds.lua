@@ -30,7 +30,7 @@ hl.bind(mainMod .. " + Q",             hl.dsp.window.close())
 hl.bind(mainMod .. " + F",             hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + P",             hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + R",             hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + SHIFT + L",     hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(mainMod .. " + SHIFT + T",     hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/close-all.sh"))
 hl.bind(mainMod .. " + ALT + F",       hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen_state({ internal = 0, client = 2, action = "toggle" }))
