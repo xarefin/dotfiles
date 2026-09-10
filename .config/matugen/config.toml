@@ -121,4 +121,4 @@ output_path = '~/.config/Kvantum/matugen/matugen.svg'
 [templates.spicetify]
 input_path = '~/.config/matugen/templates/sp.ini'
 output_path = '~/.config/spicetify/Themes/arefin/color.ini'
-post_hook = 'nohup ~/.config/hypr/scripts/spotify-check.sh >/dev/null 2>&1 &'
+post_hook = '~/.config/hypr/scripts/spotify-check.sh'

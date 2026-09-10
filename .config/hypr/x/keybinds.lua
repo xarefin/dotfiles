@@ -4,7 +4,7 @@
 
 local terminal    = "kitty"
 local fileManager = "thunar"
-local menu        = "rofi -show drun"
+local menu        = "rofi -show drun -matching fuzzy"
 local mainMod     = "SUPER" -- Sets "Windows" key as main modifier
 local browsern     = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox"
 local browser       = "brave"
@@ -159,10 +159,10 @@ hl.bind("CTRL + SHIFT + S", hl.dsp.exec_cmd([[grim -g "$(hyprctl activewindow -j
 hl.bind("CTRL + SHIFT + F", hl.dsp.exec_cmd([[grim - | satty --filename - --output-filename /home/arefin/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png --early-exit --actions-on-enter save-to-clipboard --copy-command 'wl-copy']]))
 
 -- Emoji Picker
-hl.bind("SUPER + E",                   hl.dsp.exec_cmd("~/.config/hypr/scripts/emoji.sh"))
+hl.bind("SUPER + E",                   hl.dsp.exec_cmd("~/.config/hypr/scripts/emoji.sh -matching fuzzy"))
 
 -- Wallpaper Picker (Rofi)
-hl.bind(mainMod .. " + W",             hl.dsp.exec_cmd('rofi -show wallpaper -modi "wallpaper:' .. os.getenv("HOME") .. '/.config/hypr/scripts/paper.sh" -theme-str "mainbox { children: [ \\"inputbar\\", \\"listview\\" ]; } listview { columns: 2; lines: 3; spacing: 12px; } element-text { enabled: false; } element-icon { size: 144px; horizontal-align: 0.5; } element { orientation: vertical; padding: 7px; }"'))
+hl.bind(mainMod .. " + W",             hl.dsp.exec_cmd('rofi -show wallpaper -matching fuzzy -modi "wallpaper:' .. os.getenv("HOME") .. '/.config/hypr/scripts/paper.sh" -theme-str "mainbox { children: [ \\"inputbar\\", \\"listview\\" ]; } listview { columns: 2; lines: 3; spacing: 12px; } element-text { enabled: false; } element-icon { size: 144px; horizontal-align: 0.5; } element { orientation: vertical; padding: 7px; }"'))
 
 -- Clipboard Manager (clip.sh)
 hl.bind(mainMod .. " + V",             hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/clip.sh paste"))
