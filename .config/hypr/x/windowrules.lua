@@ -68,6 +68,7 @@ hl.layer_rule({
 
 
 
+
 hl.layer_rule({
     match = { namespace = "swaync-notification-window" },
     blur = true,
@@ -107,19 +108,6 @@ hl.layer_rule({
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
- 
 
 
 

@@ -14,8 +14,10 @@
     ],
     "modules-center": [
         "clock"
+        
     ],
     "modules-right": [
+        "custom/weather",
         "power-profiles-daemon",
         "cpu",
         "custom/gpu",
@@ -103,6 +105,14 @@
             "on-scroll-down": "shift_down"
         }
     },
+    "custom/weather": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "/home/arefin/.config/hypr/scripts/weather.py",
+        "interval": 1800,
+        "tooltip": true,
+        "on-click": "xdg-open https://www.google.com/search?q=weather+at+my+location&sca_esv=b06705979e1ea1a7&sxsrf=APpeQnsGsASc6LwL9ZB86k0SDSsZCNdnkQ%3A1789118849957&ei=gcmjap35OdDUseMP5aHruAI&ved=2ahUKEwjdvYyMm-aWAxVQamwGHeXQGicQ4dUDegQIBhAM&uact=5&oq=weather+at+my+location&gs_lp=Egxnd3Mtd2l6LXNlcnAiFndlYXRoZXIgYXQgbXkgbG9jYXRpb24yCxAAGIAEGIoFGJECMg4QABiABBiKBRiRAhi0BzILEAAYgAQYigUYkQIyBRAAGIAEMggQABiABBi0BzIIEAAYgAQYtAcyBRAAGIAEMgUQABiABDIIEAAYgAQYtAcyCBAAGIAEGLQHSI4zUIEJWKcxcAF4AJABAJgBgwGgAZoSqgEFMTEuMTGwAQC4AQPIAQD4AQGYAhegAtwSqAIKwgIHECMY6gIYJ8ICBBAjGCfCAgoQABiABBiKBRhDwgINEAAYgAQYigUYQxixA8ICEBAuGIAEGIoFGEMYxwEY0QPCAg0QABiABBiKBRhDGMkDwgILEAAYgAQYigUYkgPCAggQABiABBixA8ICDRAAGIAEGBQYhwIYsQPCAg4QABiABBiKBRiRAhjJA5gDA-IDBBgAIF3iAwQYACBe4gMEGAAgX-IDBBgAIGDiAwQYACBh4gMEGAAgYvEFDCKhYP9yepSSBwQ3LjE2oAfIowGyBwQ2LjE2uAfYEsIHBjAuMjEuMsgHL4AIAQ&sclient=gws-wiz-serp"
+    },
     "cpu": {
         "interval": 2,
         "format": " {usage}%",
@@ -111,20 +121,20 @@
             "critical": 90
         },
         "tooltip": true,
-        "on-click": "kitty --title btop sh -c 'btop'"
+        "on-click": "kitty btop"
     },
     "custom/gpu": {
         "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits 2>/dev/null || cat /sys/class/drm/card0/device/gpu_busy_percent 2>/dev/null || echo '0'",
         "format": "󰈐 {}%",
         "interval": 2,
         "tooltip": false,
-        "on-click": "kitty --title nvtop sh -c 'nvtop'"
+        "on-click": "kitty btop"
     },
     "temperature": {
         "critical-threshold": 80,
         "format": "{icon} {temperatureC}°C",
         "format-icons": ["", "", ""],
-        "on-click": "kitty --title btop sh -c 'btop'"
+        "on-click": "kitty btop"
     },
     "power-profiles-daemon": {
         "format": "{icon}",
