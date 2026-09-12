@@ -1,0 +1,25 @@
+theme = "Matugen"
+
+
+
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 12.0
+confirm-close-surface = false
+background-opacity = 0.4
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
+window-padding-x = 8
+window-padding-y = 8
+cursor-style = block
+cursor-style-blink = false
+macos-icon = xray
+mouse-hide-while-typing = true
+window-decoration = true
+window-save-state = always
+
+
+
+# Enable a comet-like or Neovide-style cursor trail shader
+custom-shader = ~/.config/ghostty/shaders/cursor-trails/cursor_tail.glsl
+
+

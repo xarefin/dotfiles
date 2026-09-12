@@ -1,0 +1,76 @@
+[general]
+import = [
+    "~/.config/alacritty/colors.toml"
+]
+
+
+
+
+live_config_reload = true
+
+[window]
+opacity = 0.40
+padding = { x = 10, y = 10 }
+decorations = "full"
+dynamic_padding = true
+dynamic_title = true
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
+
+[font.offset]
+x = 0
+y = 1
+
+[selection]
+save_to_clipboard = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+
+
+
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "X"
+mods = "Control"
+action = "Copy"
