@@ -123,3 +123,12 @@ output_path = '~/.config/Kvantum/matugen/matugen.svg'
 input_path = '~/.config/matugen/templates/sp.ini'
 output_path = '~/.config/spicetify/Themes/arefin/color.ini'
 post_hook = '~/.config/hypr/scripts/spotify-check.sh'
+
+[templates.alacritty]
+input_path = '~/.config/matugen/templates/alacritty.toml'
+output_path = '~/.config/alacritty/colors.toml'
+
+[templates.ghostty]
+input_path = '~/.config/matugen/templates/ghostty'
+output_path = '~/.config/ghostty/themes/Matugen'
+post_hook = 'pkill -SIGUSR2 ghostty'

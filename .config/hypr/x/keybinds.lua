@@ -13,8 +13,8 @@ local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "rofi -show drun -matching fuzzy"
 local mainMod     = "SUPER" -- Sets "Windows" key as main modifier
-local browsern    = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox"
-local browser     = "brave"
+local browser    = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox"
+
 
 ---------------------
 ---- CORE BINDS -----
@@ -22,11 +22,10 @@ local browser     = "brave"
 
 hl.bind(mainMod .. " + Return",               hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + SHIFT + Return",       hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + SHIFT + CTRL + Return",hl.dsp.exec_cmd(browsern))
 hl.bind(mainMod .. " + SHIFT + F",            hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + Space",                hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + Escape",               hl.dsp.exec_cmd("hyprlock -c ~/.config/hypr/hyprlock.conf"))
-hl.bind(mainMod .. " + SHIFT + Escape",       hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + Escape",               hl.dsp.exec_cmd("wlogout"))
+hl.bind(mainMod .. " + CTRL + L",             hl.dsp.exec_cmd("hyprlock -c ~/.config/hypr/hyprlock.conf"))
 hl.bind(mainMod .. " + SHIFT + Q",            hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/kill.sh"))
 
 ---------------------

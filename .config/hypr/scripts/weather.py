@@ -3,10 +3,13 @@
 import urllib.request
 import urllib.parse
 import json
+import time
 
 ################################### CONFIGURATION ###################################
 
 location = "satuta"
+max_retries = 5
+retry_delay = 3
 
 ########################################## MAIN ##################################
 
@@ -46,13 +49,27 @@ def get_smart_icon(desc, temp_val):
 
 url = f"https://wttr.in/{urllib.parse.quote(location)}?format=j1"
 
+data = None
+last_exception = None
+
+# Retry loop to wait for network connectivity after wakeup/boot
+for attempt in range(max_retries):
+    try:
+        req = urllib.request.Request(
+            url, 
+            headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36'}
+        )
+        with urllib.request.urlopen(req, timeout=5) as response:
+            data = json.loads(response.read().decode('utf-8'))
+            break # Success, exit retry loop
+    except Exception as e:
+        last_exception = e
+        if attempt < max_retries - 1:
+            time.sleep(retry_delay)
+
 try:
-    req = urllib.request.Request(
-        url, 
-        headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36'}
-    )
-    with urllib.request.urlopen(req) as response:
-        data = json.loads(response.read().decode('utf-8'))
+    if data is None:
+        raise last_exception
 
     current = data['current_condition'][0]
     temp_val = float(current['temp_C'])
@@ -87,12 +104,10 @@ try:
             if chance > rain_chance_max:
                 rain_chance_max = chance
             
-            # Check if any text indicates rain
             desc_text = hour_data.get('weatherDesc', [{}])[0].get('value', '').lower()
             if "rain" in desc_text or "shower" in desc_text or "drizzle" in desc_text or chance > 40:
                 if not rain_forecast_found:
                     time_raw = hour_data.get('time', '0')
-                    # Format wttr.in time string (e.g., '300' -> '03:00', '1200' -> '12:00')
                     time_formatted = time_raw.zfill(4)
                     next_rain_time = f"{time_formatted[:2]}:{time_formatted[2:]} ({chance}% chance)"
                     rain_forecast_found = True
@@ -101,7 +116,6 @@ try:
 
     rain_section = f"🌧️ Rain Forecast: {next_rain_time} [Peak: {rain_chance_max}%]"
 
-    # Comprehensive tooltip layout
     tooltip_text = str.format(
         "\t\t{}\t\t\n{}\n{}\n{}\n\n{}\t{}\n{}\t{}\n\n{}",
         f'<span size="xx-large">{temp}</span>',

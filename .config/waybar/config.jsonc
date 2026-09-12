@@ -173,13 +173,14 @@
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%"
     },
     "network": {
-        "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀 Wired",
-        "format-disconnected": "󰖪 Off",
-        "tooltip-format": "{ifname} via {gwaddr}\nIP: {ipaddr}/{cidr}\nSignal: {signaldBm}dBm ({signalStrength}%)",
-        "on-click": "kitty impala",
-        "on-click-right": "kitty bandwhich"
-    },
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰈀 Wired",
+    "format-disconnected": "󰖪 Off",
+    "max-length": 10,
+    "tooltip-format": "{ifname} via {gwaddr}\nIP: {ipaddr}/{cidr}\nSignal: {signaldBm}dBm ({signalStrength}%)",
+    "on-click": "kitty wlctl",
+    "on-click-right": "kitty bandwhich"
+},
     "bluetooth": {
         "format": "󰂯 ON",
         "format-off": "󰂲 OFF",
