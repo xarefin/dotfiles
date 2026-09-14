@@ -132,3 +132,7 @@ output_path = '~/.config/alacritty/colors.toml'
 input_path = '~/.config/matugen/templates/ghostty'
 output_path = '~/.config/ghostty/themes/Matugen'
 post_hook = 'pkill -SIGUSR2 ghostty'
+
+[templates.firefox-website-colors]
+input_path = '~/.config/matugen/templates/firefox-colors.css'
+output_path = '~/.config/mozilla/firefox/xp78z0xl.default-release-1788257670866/chrome/colors.css'

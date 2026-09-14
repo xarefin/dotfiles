@@ -65,10 +65,13 @@ hl.bind(mainMod .. " + SHIFT + L",            hl.dsp.window.move({ direction = "
 ---- RESIZE WINDOWS -
 ---------------------
 
+
 hl.bind(mainMod .. " + SHIFT + left",         function() hl.dispatch(hl.dsp.window.resize({ x = -50, y = 0, relative = true })) end, { repeating = true })
 hl.bind(mainMod .. " + SHIFT + right",        function() hl.dispatch(hl.dsp.window.resize({ x = 50,  y = 0, relative = true })) end, { repeating = true })
-hl.bind(mainMod .. " + SHIFT + up",           function() hl.dispatch(hl.dsp.window.resize({ x = 0,  y = -50, relative = true })) end, { repeating = true })
-hl.bind(mainMod .. " + SHIFT + down",         function() hl.dispatch(hl.dsp.window.resize({ x = 0,  y = 50,  relative = true })) end, { repeating = true })
+hl.bind(mainMod .. " + SHIFT + up",           function() hl.dispatch(hl.dsp.window.resize({ x = 0,   y = -50, relative = true })) end, { repeating = true })
+hl.bind(mainMod .. " + SHIFT + down",         function() hl.dispatch(hl.dsp.window.resize({ x = 0,   y = 50,  relative = true })) end, { repeating = true })
+
+
 
 ---------------------
 ---- WORKSPACES -----
@@ -118,12 +121,18 @@ end)
 hl.bind(mainMod .. " + M",                    hl.dsp.window.move({ workspace = "special:magic" }))
 hl.bind(mainMod .. " + SHIFT + M",            hl.dsp.workspace.toggle_special("magic"))
 
----------------------
---- MOUSE DRAGGING --
----------------------
+----------------------------------
+--- MOUSE DRAGGING & KEY DRAGGING --
+----------------------------------
+
+hl.bind(mainMod .. " + Left",  function() hl.dispatch(hl.dsp.window.move({ x = -50, y = 0, relative = true })) end)
+hl.bind(mainMod .. " + Right", function() hl.dispatch(hl.dsp.window.move({ x = 50,  y = 0, relative = true })) end)
+hl.bind(mainMod .. " + Up",    function() hl.dispatch(hl.dsp.window.move({ x = 0,   y = -50, relative = true })) end)
+hl.bind(mainMod .. " + Down",  function() hl.dispatch(hl.dsp.window.move({ x = 0,   y = 50,  relative = true })) end)
 
 hl.bind(mainMod .. " + mouse:272",            hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273",            hl.dsp.window.resize(), { mouse = true })
+
 
 ---------------------
 --- MULTIMEDIA KEYS -

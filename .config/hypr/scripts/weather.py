@@ -14,22 +14,22 @@ retry_delay = 3
 ########################################## MAIN ##################################
 
 weather_icons = {
-    "Sunny": "☀️",
-    "Clear": "☀️",
-    "Partly cloudy": "⛅",
-    "Cloudy": "☁️",
-    "Overcast": "☁️",
-    "Mist": "🌫️",
-    "Fog": "🌫️",
-    "Patchy rain possible": "🌦️",
-    "Light rain": "🌧️",
-    "Moderate rain": "🌧️",
-    "Heavy rain": "🌧️",
-    "Thundery outbreaks possible": "⛈️",
-    "Moderate or heavy rain with thunder": "⛈️",
-    "Patchy light rain with thunder": "⛈️",
-    "Light drizzle": "🌧️",
-    "Snow": "❄️",
+    "Sunny": "󰖙",
+    "Clear": "󰖙",
+    "Partly cloudy": "󰖕",
+    "Cloudy": "󰖐",
+    "Overcast": "󰖐",
+    "Mist": "󰖑",
+    "Fog": "󰖑",
+    "Patchy rain possible": "󰖖",
+    "Light rain": "󰖖",
+    "Moderate rain": "󰖖",
+    "Heavy rain": "󰖖",
+    "Thundery outbreaks possible": "󰖓",
+    "Moderate or heavy rain with thunder": "󰖓",
+    "Patchy light rain with thunder": "󰖓",
+    "Light drizzle": "󰖖",
+    "Snow": "󰼶",
 }
 
 def get_smart_icon(desc, temp_val):
@@ -39,13 +39,13 @@ def get_smart_icon(desc, temp_val):
             return icn
     
     if temp_val <= 0:
-        return "❄️"
+        return "󰼶"
     elif temp_val <= 15:
-        return "🌫️"
+        return "󰖑"
     elif temp_val <= 28:
-        return "⛅"
+        return "󰖕"
     else:
-        return "☀️"
+        return "󰖙"
 
 url = f"https://wttr.in/{urllib.parse.quote(location)}?format=j1"
 
@@ -81,16 +81,16 @@ try:
     
     temp_feel = f"Feels like {current['FeelsLikeC']}°C"
     wind_speed = f"{current['windspeedKmph']} km/h"
-    wind_text = f"💨 {wind_speed}"
+    wind_text = f"󰖝 {wind_speed}"
     
     humidity = f"{current['humidity']}%"
-    humidity_text = f"💧 {humidity}"
+    humidity_text = f"󰖎 {humidity}"
     
     visibility = f"{current['visibility']} km"
-    visbility_text = f"👁️ {visibility}"
+    visbility_text = f"󰍉 {visibility}"
     
     uv_index = current.get('uvIndex', 'N/A')
-    uv_text = f"☀️ UV {uv_index}"
+    uv_text = f"󰸏 UV {uv_index}"
     
     # Advanced rain detection across today's hourly forecast
     rain_forecast_found = False
@@ -114,7 +114,7 @@ try:
     except Exception:
         pass
 
-    rain_section = f"🌧️ Rain Forecast: {next_rain_time} [Peak: {rain_chance_max}%]"
+    rain_section = f"󰖖 Rain Forecast: {next_rain_time} [Peak: {rain_chance_max}%]"
 
     tooltip_text = str.format(
         "\t\t{}\t\t\n{}\n{}\n{}\n\n{}\t{}\n{}\t{}\n\n{}",
@@ -139,7 +139,7 @@ try:
 
 except Exception as e:
     err_data = {
-        "text": "🚫 N/A",
+        "text": "󰅚 N/A",
         "alt": "Offline",
         "tooltip": str(e),
         "class": "error",
