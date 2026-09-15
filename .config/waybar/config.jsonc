@@ -14,16 +14,13 @@
     ],
     "modules-center": [
         "clock"
-        
     ],
     "modules-right": [
         "custom/weather",
-        "power-profiles-daemon",
-        "cpu",
-        "custom/gpu",
         "temperature",
         "backlight",
         "pulseaudio",
+        "pulseaudio#microphone",
         "custom/notification",
         "bluetooth",
         "network",
@@ -35,14 +32,19 @@
     "custom/arch": {
         "format": "󰣇",
         "tooltip": false,
-        "on-click": "rofi -show drun"
+        "on-click": "rofi -show drun",
+        "on-click-right": "kitty btop",
+        "on-click-middle": "kitty --hold fastfetch"
     },
     "hyprland/workspaces": {
         "active-only": false,
         "all-outputs": true,
-        "disable-scroll": false,
         "format": "{icon}",
+        "show-special": false,
+        "tooltip" : false,
         "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
         "persistent-workspaces": {
             "*": 10
         },
@@ -57,7 +59,9 @@
         "format": "{player_icon} {title} - {artist}",
         "format-paused": "{status_icon} {title} - {artist}",
         "format-no-players": "No player",
-        "max-length": 40,
+        "max-length": 20,
+        "tooltip": true,
+        "tooltip-format": "󰎆 Player: {player} ({status})\n󰚺 Artist: {artist}\n󰝚 Title: {title}\n󰀥 Album: {album}",
         "player-icons": {
             "chromium": " ",
             "default": "󰎈",
@@ -80,15 +84,18 @@
     },
     "custom/cava": {
         "exec": "~/.config/hypr/scripts/cava.sh",
-        "format": "{}"
+        "format": "{}",
+        "tooltip": false,
+        "on-click": "kitty cava"
     },
     "clock": {
         "interval": 1,
         "format": "󰥔 {:%I:%M:%S %p}",
         "format-alt": "󰃭 {:%a, %b %d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "month",
+            "mode-mon-col": 1,
             "on-scroll": 1,
             "format": {
                 "months": "<span color='#ffead3'><b>{}</b></span>",
@@ -100,7 +107,6 @@
         },
         "on-click-right": "kitty tty-clock -c -t -s",
         "actions": {
-            "on-click-right": "mode",
             "on-scroll-up": "shift_up",
             "on-scroll-down": "shift_down"
         }
@@ -109,50 +115,25 @@
         "format": "{}",
         "return-type": "json",
         "exec": "/home/arefin/.config/hypr/scripts/weather.py",
-        "interval": 1800,
+        "interval": 10,
         "tooltip": true,
-        "on-click": "xdg-open https://www.google.com/search?q=weather+at+my+location&sca_esv=b06705979e1ea1a7&sxsrf=APpeQnsGsASc6LwL9ZB86k0SDSsZCNdnkQ%3A1789118849957&ei=gcmjap35OdDUseMP5aHruAI&ved=2ahUKEwjdvYyMm-aWAxVQamwGHeXQGicQ4dUDegQIBhAM&uact=5&oq=weather+at+my+location&gs_lp=Egxnd3Mtd2l6LXNlcnAiFndlYXRoZXIgYXQgbXkgbG9jYXRpb24yCxAAGIAEGIoFGJECMg4QABiABBiKBRiRAhi0BzILEAAYgAQYigUYkQIyBRAAGIAEMggQABiABBi0BzIIEAAYgAQYtAcyBRAAGIAEMgUQABiABDIIEAAYgAQYtAcyCBAAGIAEGLQHSI4zUIEJWKcxcAF4AJABAJgBgwGgAZoSqgEFMTEuMTGwAQC4AQPIAQD4AQGYAhegAtwSqAIKwgIHECMY6gIYJ8ICBBAjGCfCAgoQABiABBiKBRhDwgINEAAYgAQYigUYQxixA8ICEBAuGIAEGIoFGEMYxwEY0QPCAg0QABiABBiKBRhDGMkDwgILEAAYgAQYigUYkgPCAggQABiABBixA8ICDRAAGIAEGBQYhwIYsQPCAg4QABiABBiKBRiRAhjJA5gDA-IDBBgAIF3iAwQYACBe4gMEGAAgX-IDBBgAIGDiAwQYACBh4gMEGAAgYvEFDCKhYP9yepSSBwQ3LjE2oAfIowGyBwQ2LjE2uAfYEsIHBjAuMjEuMsgHL4AIAQ&sclient=gws-wiz-serp"
-    },
-    "cpu": {
-        "interval": 2,
-        "format": " {usage}%",
-        "states": {
-            "warning": 70,
-            "critical": 90
-        },
-        "tooltip": true,
-        "on-click": "kitty btop"
-    },
-    "custom/gpu": {
-        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits 2>/dev/null || cat /sys/class/drm/card0/device/gpu_busy_percent 2>/dev/null || echo '0'",
-        "format": "󰈐 {}%",
-        "interval": 2,
-        "tooltip": false,
-        "on-click": "kitty btop"
+        "on-click": "/home/arefin/.config/hypr/scripts/weather.py --click"
     },
     "temperature": {
         "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""],
+        "format": "󰟌 {temperatureC}°C",
+        "format-icons": ["󰟌", "󰟌", "󰟌"],
         "on-click": "kitty btop"
     },
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-        "tooltip": true,
-        "format-icons": {
-            "default": "",
-            "performance": " 100%",
-            "balanced": "󰗑 50%",
-            "power-saver": "󰌪 20%"
-        }
-    },
     "backlight": {
+        "device": "intel_backlight",
         "format": "{icon} {percent}%",
         "format-icons": ["󰃞", "󰃟", "󰃠"],
         "on-scroll-up": "brightnessctl set +1%",
         "on-scroll-down": "brightnessctl set 1%-",
-        "on-click": "kitty brightness-tui"
+        "on-click": "kitty brightness-tui",
+        "tooltip": true,
+        "tooltip-format": "󰃞 Backlight Level: {percent}%\n󰌆 Controller: intel_backlight"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -170,27 +151,42 @@
         "on-click": "kitty wiremix",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%"
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+        "tooltip": true,
+        "tooltip-format": "󰕾 Volume: {volume}%\n󰓃 Sink Device: {desc}"
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
+        "max-volume": 100,
+        "tooltip": true,
+        "tooltip-format": "󰍬 Microphone Level: {source_volume}%\n󰓃 Source Device: {source_desc}"
     },
     "network": {
-    "format-wifi": "  {essid}",
-    "format-ethernet": "󰈀 Wired",
-    "format-disconnected": "󰖪 Off",
-    "max-length": 10,
-    "tooltip-format": "{ifname} via {gwaddr}\nIP: {ipaddr}/{cidr}\nSignal: {signaldBm}dBm ({signalStrength}%)",
-    "on-click": "kitty wlctl",
-    "on-click-right": "kitty bandwhich"
-},
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀 Wired",
+        "format-disconnected": "󰖪 Odd",
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": "  Name: {essid}\n󰈀 Interface: {ifname} via {gwaddr}\n󰩟 IP: {ipaddr}/{cidr}\n󰖩 Signal: {signaldBm}dBm ({signalStrength}%)",
+        "on-click": "kitty wlctl",
+        "on-click-right": "kitty bandwhich"
+    },
     "bluetooth": {
         "format": "󰂯 ON",
         "format-off": "󰂲 OFF",
         "format-disabled": "󰂲 OFF",
         "format-connected": "󰂱 {num_connections}",
         "format-connected-battery": "󰂱 {num_connections}",
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected:\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "tooltip": true,
+        "tooltip-format": "󰂯 {controller_alias}\t{controller_address}\n\n󰓩 {num_connections} connected",
+        "tooltip-format-connected": "󰂯 {controller_alias}\t{controller_address}\n\n󰓩 {num_connections} connected:\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "󰂱 {device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "󰂱 {device_alias}\t{device_address}\t{device_battery_percentage}%",
         "on-click": "kitty bluetui",
         "on-click-right": "bluetoothctl power toggle"
     },
@@ -205,7 +201,8 @@
         "format-plugged": " {capacity}%",
         "format-full": "󱟢 100%",
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "tooltip-format": "{timeTo} ({power:0.1f} W)",
+        "tooltip": true,
+        "tooltip-format": "󱐋 Power: {timeTo}\n󱃌 Power draw: {power:0.1f} W\n󰓅 Health: {health}%",
         "on-click": "kitty battop"
     },
     "custom/notification": {

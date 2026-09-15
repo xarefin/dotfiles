@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "loginctl lock-session",
+    "action" : "hyprlock",
     "text" : "Lock"
 }
 {
@@ -20,7 +20,7 @@
 }
 {
     "label" : "suspend",
-    "action" : "sh -c 'systemctl suspend'",
+    "action" : "hyprlock & sleep 1 && sh -c 'systemctl suspend'",
     "text" : "Suspend"
 }
 {

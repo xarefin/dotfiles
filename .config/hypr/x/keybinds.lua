@@ -180,3 +180,8 @@ hl.bind("ALT + Delete",                       hl.dsp.exec_cmd(os.getenv("HOME") 
 hl.bind("CTRL + SHIFT + X",                   hl.dsp.exec_cmd([[
     region=$(slurp) && grim -g "$region" - | tesseract stdin stdout | wl-copy && notify-send "⎘ OCR" "Text copied to clipboard"
 ]]))
+
+
+--Hyprpicker(color picker)
+
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprpicker -a"))
