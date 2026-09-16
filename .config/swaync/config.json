@@ -59,7 +59,7 @@
       "actions": [
         {
           "label": "",
-          "command": "kitty impala",
+          "command": "kitty wlctl",
           "tooltip": "Network"
         },
         {
