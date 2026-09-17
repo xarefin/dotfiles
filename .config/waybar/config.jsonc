@@ -162,7 +162,7 @@
         "format-source": " {volume}%",
         "format-source-muted": " ",
         "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-        "on-click": "kitty wiremix",
+        "on-click": "kitty wiremix -v input",
         "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
         "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
         "max-volume": 100,

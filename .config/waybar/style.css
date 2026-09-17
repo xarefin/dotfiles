@@ -63,7 +63,7 @@ tooltip label {
 #custom-notification,
 #custom-power {
     background: transparent;
-    padding: 0px 6px;
+    padding: 0px 5px;
     margin: 0px 1px;
     color: @matugen-accent;
 }
