@@ -11,7 +11,7 @@
 
 local terminal    = "kitty"
 local fileManager = "thunar"
-local menu        = "rofi -show drun -matching fuzzy"
+local menu        = "pkill rofi || rofi -show drun -matching fuzzy"
 local mainMod     = "SUPER" -- Sets "Windows" key as main modifier
 local browser    = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox"
 
@@ -20,11 +20,11 @@ local browser    = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia
 ---- CORE BINDS -----
 ---------------------
 
-hl.bind(mainMod .. " + Return",               hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + SHIFT + Return",       hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + SHIFT + F",            hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + Return",               hl.dsp.exec_cmd(terminal), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + Return",       hl.dsp.exec_cmd(browser), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + F",            hl.dsp.exec_cmd(fileManager), { repeating = true })
 hl.bind(mainMod .. " + Space",                hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + Escape",               hl.dsp.exec_cmd("wlogout"))
+hl.bind(mainMod .. " + Escape",               hl.dsp.exec_cmd("pkill wlogout || wlogout"))
 hl.bind(mainMod .. " + CTRL + L",             hl.dsp.exec_cmd("hyprlock -c ~/.config/hypr/hyprlock.conf"))
 hl.bind(mainMod .. " + SHIFT + Q",            hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/kill.sh"))
 
@@ -32,7 +32,7 @@ hl.bind(mainMod .. " + SHIFT + Q",            hl.dsp.exec_cmd(os.getenv("HOME") 
 --- WINDOW MANAGEMENT
 ---------------------
 
-hl.bind(mainMod .. " + Q",                    hl.dsp.window.close())
+hl.bind(mainMod .. " + Q",                    hl.dsp.window.close(), { repeating = true })
 hl.bind(mainMod .. " + F",                    hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + P",                    hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + R",                    hl.dsp.window.float({ action = "toggle" }))
@@ -66,10 +66,10 @@ hl.bind(mainMod .. " + SHIFT + L",            hl.dsp.window.move({ direction = "
 ---------------------
 
 
-hl.bind(mainMod .. " + SHIFT + left",         function() hl.dispatch(hl.dsp.window.resize({ x = -50, y = 0, relative = true })) end, { repeating = true })
-hl.bind(mainMod .. " + SHIFT + right",        function() hl.dispatch(hl.dsp.window.resize({ x = 50,  y = 0, relative = true })) end, { repeating = true })
-hl.bind(mainMod .. " + SHIFT + up",           function() hl.dispatch(hl.dsp.window.resize({ x = 0,   y = -50, relative = true })) end, { repeating = true })
-hl.bind(mainMod .. " + SHIFT + down",         function() hl.dispatch(hl.dsp.window.resize({ x = 0,   y = 50,  relative = true })) end, { repeating = true })
+hl.bind(mainMod .. " + left",         function() hl.dispatch(hl.dsp.window.resize({ x = -50, y = 0, relative = true })) end, { repeating = true })
+hl.bind(mainMod .. " + right",        function() hl.dispatch(hl.dsp.window.resize({ x = 50,  y = 0, relative = true })) end, { repeating = true })
+hl.bind(mainMod .. " + up",           function() hl.dispatch(hl.dsp.window.resize({ x = 0,   y = -50, relative = true })) end, { repeating = true })
+hl.bind(mainMod .. " + down",         function() hl.dispatch(hl.dsp.window.resize({ x = 0,   y = 50,  relative = true })) end, { repeating = true })
 
 
 
@@ -125,10 +125,10 @@ hl.bind(mainMod .. " + SHIFT + M",            hl.dsp.workspace.toggle_special("m
 --- MOUSE DRAGGING & KEY DRAGGING --
 ----------------------------------
 
-hl.bind(mainMod .. " + Left",  function() hl.dispatch(hl.dsp.window.move({ x = -50, y = 0, relative = true })) end)
-hl.bind(mainMod .. " + Right", function() hl.dispatch(hl.dsp.window.move({ x = 50,  y = 0, relative = true })) end)
-hl.bind(mainMod .. " + Up",    function() hl.dispatch(hl.dsp.window.move({ x = 0,   y = -50, relative = true })) end)
-hl.bind(mainMod .. " + Down",  function() hl.dispatch(hl.dsp.window.move({ x = 0,   y = 50,  relative = true })) end)
+hl.bind(mainMod .. " + SHIFT + Left",  function() hl.dispatch(hl.dsp.window.move({ x = -50, y = 0, relative = true })) end, { repeating = true })
+hl.bind(mainMod .. " + SHIFT + Right", function() hl.dispatch(hl.dsp.window.move({ x = 50,  y = 0, relative = true })) end, { repeating = true })
+hl.bind(mainMod .. " + SHIFT + Up",    function() hl.dispatch(hl.dsp.window.move({ x = 0,   y = -50, relative = true })) end, { repeating = true })
+hl.bind(mainMod .. " + SHIFT + Down",  function() hl.dispatch(hl.dsp.window.move({ x = 0,   y = 50,  relative = true })) end, { repeating = true })
 
 hl.bind(mainMod .. " + mouse:272",            hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273",            hl.dsp.window.resize(), { mouse = true })
@@ -168,11 +168,11 @@ hl.bind("CTRL + SHIFT + S",                   hl.dsp.exec_cmd([[grim -g "$(hyprc
 hl.bind("CTRL + SHIFT + F",                   hl.dsp.exec_cmd([[grim - | satty --filename - --output-filename /home/arefin/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png --early-exit --actions-on-enter save-to-clipboard --copy-command 'wl-copy']]))
 
 -- Extras & Pickers
-hl.bind("SUPER + E",                          hl.dsp.exec_cmd("~/.config/hypr/scripts/emoji.sh -matching fuzzy"))
-hl.bind(mainMod .. " + W",                    hl.dsp.exec_cmd('rofi -show wallpaper -matching fuzzy -modi "wallpaper:' .. os.getenv("HOME") .. '/.config/hypr/scripts/paper.sh" -theme-str "mainbox { children: [ \\"inputbar\\", \\"listview\\" ]; } listview { columns: 2; lines: 3; spacing: 12px; } element-text { enabled: false; } element-icon { size: 144px; horizontal-align: 0.5; } element { orientation: vertical; padding: 7px; }"'))
+hl.bind("SUPER + E", hl.dsp.exec_cmd([[sh -c 'if pgrep -x rofi >/dev/null; then pkill -x rofi; else ~/.config/hypr/scripts/emoji.sh -matching fuzzy; fi']]))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd('sh -c \'if pgrep -x rofi >/dev/null; then pkill -x rofi; else rofi -show wallpaper -matching fuzzy -modi "wallpaper:' .. os.getenv("HOME") .. '/.config/hypr/scripts/paper.sh" -theme-str "mainbox { children: [ \\"inputbar\\", \\"listview\\" ]; } listview { columns: 2; lines: 3; spacing: 12px; } element-text { enabled: false; } element-icon { size: 144px; horizontal-align: 0.5; } element { orientation: vertical; padding: 7px; }"; fi\''))
 
 -- Clipboard Manager
-hl.bind(mainMod .. " + V",                    hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/clip.sh paste"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd([[sh -c 'if pgrep -x rofi >/dev/null || pgrep -x fuzzel >/dev/null || pgrep -x wofi >/dev/null; then pkill -x rofi || pkill -x fuzzel || pkill -x wofi; else ]] .. os.getenv("HOME") .. [[/.config/hypr/scripts/clip.sh paste; fi']]))
 hl.bind(mainMod .. " + SHIFT + V",            hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/clip.sh wipe"))
 hl.bind("ALT + Delete",                       hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/clip.sh delete"))
 
@@ -185,3 +185,9 @@ hl.bind("CTRL + SHIFT + X",                   hl.dsp.exec_cmd([[
 --Hyprpicker(color picker)
 
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprpicker -a"))
+
+
+
+
+
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar || waybar"))

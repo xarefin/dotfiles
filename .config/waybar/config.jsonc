@@ -17,7 +17,7 @@
     ],
     "modules-right": [
         "custom/weather",
-        "temperature",
+        "custom/vitals",
         "backlight",
         "pulseaudio",
         "pulseaudio#microphone",
@@ -119,12 +119,14 @@
         "tooltip": true,
         "on-click": "/home/arefin/.config/hypr/scripts/weather.py --click"
     },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "󰟌 {temperatureC}°C",
-        "format-icons": ["󰟌", "󰟌", "󰟌"],
-        "on-click": "kitty btop"
-    },
+    "custom/vitals": {
+    "exec": "~/.config/hypr/scripts/vitals.sh",
+    "return-type": "json",
+    "interval": 2,
+    "format": "{}",
+    "on-click": "kitty btop",
+    "tooltip": true
+},
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
@@ -138,7 +140,7 @@
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-bluetooth": "󰋎 {volume}%",
-        "format-muted": "󰝟 Muted",
+        "format-muted": "󰝟 ",
         "format-icons": {
             "headphone": "",
             "hands-free": "󰋎",
@@ -158,8 +160,9 @@
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "format-source": " {volume}%",
-        "format-source-muted": " Muted",
-        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "format-source-muted": " ",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-click": "kitty wiremix",
         "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
         "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
         "max-volume": 100,
@@ -169,7 +172,7 @@
     "network": {
         "format-wifi": "  {essid}",
         "format-ethernet": "󰈀 Wired",
-        "format-disconnected": "󰖪 Odd",
+        "format-disconnected": " ",
         "max-length": 10,
         "tooltip": true,
         "tooltip-format": "  Name: {essid}\n󰈀 Interface: {ifname} via {gwaddr}\n󰩟 IP: {ipaddr}/{cidr}\n󰖩 Signal: {signaldBm}dBm ({signalStrength}%)",
@@ -177,9 +180,9 @@
         "on-click-right": "kitty bandwhich"
     },
     "bluetooth": {
-        "format": "󰂯 ON",
-        "format-off": "󰂲 OFF",
-        "format-disabled": "󰂲 OFF",
+        "format": "󰂯",
+        "format-off": "󰂲",
+        "format-disabled": "󰂲",
         "format-connected": "󰂱 {num_connections}",
         "format-connected-battery": "󰂱 {num_connections}",
         "tooltip": true,

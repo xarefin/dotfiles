@@ -14,48 +14,39 @@
         "break",
         {
             "type": "os",
-            "key": " ",
-            "keyColor": "33"
+            "key": " "
         },
         {
             "type": "kernel",
-            "key": " ",
-            "keyColor": "33"
+            "key": " "
         },
         {
             "type": "packages",
-            "key": " ",
-            "keyColor": "33"
+            "key": " "
         },
         {
             "type": "shell",
-            "key": " ",
-            "keyColor": "33"
+            "key": " "
         },
         {
             "type": "terminal",
-            "key": " ",
-            "keyColor": "33"
+            "key": " "
         },
         {
             "type": "wm",
-            "key": " ",
-            "keyColor": "33"
+            "key": " "
         },
         {
             "type": "memory",
-            "key": " ",
-            "keyColor": "33"
+            "key": " "
         },
         {
             "type": "disk",
-            "key": "󰋊 ",
-            "keyColor": "33"
+            "key": "󰋊 "
         },
         {
             "type": "uptime",
-            "key": " ",
-            "keyColor": "33"
+            "key": " "
         },
         "break",
         {

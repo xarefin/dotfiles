@@ -35,13 +35,6 @@ hl.layer_rule({
 
 })
 
--- Window rules for HyprEmoji
-hl.window_rule({
-    match = { title = "^(HyprEmoji)$" },
-    float = true,
-    move  = {"cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.05)"},
-})
-
 
 hl.layer_rule({
     match = { namespace = "swaync-control-center" },
@@ -96,7 +89,7 @@ hl.layer_rule({
        blur = true,
        ignore_alpha = 0.0,
        --dim_around = true,
-   animation = "popin 87%",
+   animation = "popin 80%",
  })
 
 
