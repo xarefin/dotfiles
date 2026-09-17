@@ -1,11 +1,11 @@
 * {
-    foreground:                  #e7e0e8;
+    foreground:                  #dee3e6;
     
-    active-background:           #cdc2dbe6;
+    active-background:           #b3cad5e6;
     urgent-background:           #ffb4ab;
     urgent-foreground:           #690005;
-    accent:                      #d4bbfc;
-    arch-color:                  #d4bbfc; 
+    accent:                      #89d0ed;
+    arch-color:                  #89d0ed; 
 
     selected-background:         @accent;
     selected-urgent-background:  @urgent-background;
