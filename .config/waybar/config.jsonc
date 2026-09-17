@@ -148,7 +148,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": ["", "", ""]
         },
         "on-click": "kitty wiremix",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
