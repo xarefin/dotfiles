@@ -35,4 +35,44 @@
     <img src="./screenshots/main5.png" width="100%" alt="Showcase 5">
   </p>
 
+  <p align="center">
+    <img src="./screenshots/main6.png" width="100%" alt="Showcase 6">
+  </p>
+
+  <p align="center">
+    <img src="./screenshots/main7.png" width="100%" alt="Showcase 7">
+  </p>
+
+  <p align="center">
+    <img src="./screenshots/main8.png" width="100%" alt="Showcase 8">
+  </p>
+
+  <p align="center">
+    <img src="./screenshots/main9.png" width="100%" alt="Showcase 9">
+  </p>
+
+  <p align="center">
+    <img src="./screenshots/main10.png" width="100%" alt="Showcase 10">
+  </p>
+
+  <p align="center">
+    <img src="./screenshots/main11.png" width="100%" alt="Showcase 11">
+  </p>
+
+  <p align="center">
+    <img src="./screenshots/main12.png" width="100%" alt="Showcase 12">
+  </p>
+
+  <p align="center">
+    <img src="./screenshots/main13.png" width="100%" alt="Showcase 13">
+  </p>
+
+  <p align="center">
+    <img src="./screenshots/main15.png" width="100%" alt="Showcase 15">
+  </p>
+
+  <p align="center">
+    <img src="./screenshots/main16.png" width="100%" alt="Showcase 16">
+  </p>
+
 </details>
