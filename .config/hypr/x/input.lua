@@ -37,7 +37,7 @@ hl.device({
 
 hl.config({
   cursor = {
-    inactive_timeout = 1, -- Hides the cursor after 10 seconds of inactivity
+    inactive_timeout = 0.1, -- Hides the cursor after 10 seconds of inactivity
   },
 })
 
