@@ -6,7 +6,7 @@
 
 <h2 align="center">
   <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Activity/Sparkles.webp" alt="Sparkles" width="35" height="35" align="absmiddle" />
-  My Arch Hyprland Dotfiles
+  Arch Hyprland Dotfiles
   <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Activity/Sparkles.webp" alt="Sparkles" width="35" height="35" align="absmiddle" />
 </h2>
 
