@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/OS-Arch%20Linux-1793d1?style=for-the-badge&logo=arch-linux&logoColor=white">
   <img src="https://img.shields.io/badge/WM-Hyprland-232323?style=for-the-badge&logo=wayland&logoColor=ff4500">
-  <img src="https://img.shields.io/github/last-commit/xarefin/dotfiles?style=for-the-badge&color=blue">
+  <img src="https://img.shields.io/github/stars/xarefin/dotfiles?style=for-the-badge&color=blue">
 </p>
 
 <h2 align="center">
