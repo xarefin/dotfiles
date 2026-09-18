@@ -13,9 +13,9 @@
 ---
 
 <h2 align="center">
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Objects/Framed%20Picture.webp" alt="Picture" width="32" height="32" align="absmiddle" />
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Activity/Artist%20Palette.webp" alt="Palette" width="38" height="38" align="absmiddle" />
   Showcase
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Objects/Framed%20Picture.webp" alt="Picture" width="32" height="32" align="absmiddle" />
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Activity/Artist%20Palette.webp" alt="Palette" width="38" height="38" align="absmiddle" />
 </h2>
 
 <details open>
