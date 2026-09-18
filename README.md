@@ -4,11 +4,22 @@
   <img src="https://img.shields.io/github/last-commit/xarefin/dotfiles?style=for-the-badge&color=blue">
 </p>
 
-<h1 align="center">✨ My Arch Hyprland Dotfiles ✨</h1>
+<p align="center">
+  <h1>
+    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Sparkles.png" width="40" align="absmiddle" />
+    My Arch Hyprland Dotfiles
+    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Sparkles.png" width="40" align="absmiddle" />
+  </h1>
+</p>
 
 ---
 
-## 🖼️ Showcase 🖼️
+<p align="center">
+  <h2>
+    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Framed%20Picture.png" width="35" align="absmiddle" />
+    Showcase
+  </h2>
+</p>
 
 <details open>
   <summary><b>Click to collapse/expand screenshots</b></summary>
