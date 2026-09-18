@@ -6,10 +6,6 @@
 
 <h1 align="center">✨ My Arch Hyprland Dotfiles</h1>
 
-<p align="center">
-  A clean, minimalist, and dynamic Arch Linux environment featuring Matugen color schemes, a customized Waybar setup, and a smooth tiling experience.
-</p>
-
 ---
 
 ## 🖼️ Showcase
@@ -26,18 +22,7 @@
 
   ### 🪟 Rofi & Apps Layout
   <p align="center">
-    <!-- Add more image paths here as you add them to your repo -->
     <img src="./wallpaper/another-showcase.png" width="100%" alt="Apps Showcase">
   </p>
 
 </details>
-
----
-
-## 🛠️ Quick Setup
-
-Clone the repository to your local machine:
-
-```bash
-git clone [https://github.com/xarefin/dotfiles.git](https://github.com/xarefin/dotfiles.git) ~/dotfiles
-cd ~/dotfiles
