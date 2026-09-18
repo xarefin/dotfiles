@@ -1,9 +1,22 @@
 #!/usr/bin/env bash
 
+# Rotate based on system time (changes every 5 seconds, cycles through 0, 1, 2) - NO FILES WRITTEN TO DISK
+INDEX=$(( (EPOCHSECONDS / 5) % 3 ))
+
 # CPU Usage & Temp (Clean integers + units)
 CPU_TEMP=$(sensors 2>/dev/null | grep -E 'Package id 0|Tctl|CPU' | awk '{print $4}' | tr -d '+°C' | awk '{print int($1)}' | head -n 1)
 [ -z "$CPU_TEMP" ] && CPU_TEMP=0
 CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print int(100 - $1)}')
+
+# Whole Laptop / System Temperature
+SYS_TEMP=0
+if [ -f /sys/class/thermal/thermal_zone0/temp ]; then
+    SYS_TEMP=$(cat /sys/class/thermal/thermal_zone0/temp 2>/dev/null | awk '{print int($1/1000)}')
+fi
+if [ "$SYS_TEMP" -eq 0 ]; then
+    SYS_TEMP=$(sensors 2>/dev/null | grep -iE 'edge|temp1|composite|acpitz' | awk '{print $2}' | tr -d '+°C' | awk '{print int($1)}' | head -n 1)
+fi
+[ -z "$SYS_TEMP" ] || [ "$SYS_TEMP" -eq 0 ] && SYS_TEMP="$CPU_TEMP"
 
 # GPU Usage & Temp (Clean integers + units)
 if command -v nvidia-smi &> /dev/null; then
@@ -44,7 +57,14 @@ else
     NET_STAT="Disconnected"
 fi
 
-# JSON payload for Waybar
+# Rotate main text display between: 0 -> System Temp, 1 -> GPU Usage, 2 -> CPU Usage
+case $INDEX in
+    0) TEXT="󰔏 ${SYS_TEMP}°C" ;;
+    1) TEXT="󰈐 ${GPU_USAGE}%" ;;
+    2) TEXT=" ${CPU_USAGE}%" ;;
+esac
+
+# JSON payload for Waybar with full tooltip
 cat <<EOF
-{"text": "󰟌 ${CPU_TEMP}°C", "tooltip": " CPU Usage: ${CPU_USAGE}%\n CPU Temp: ${CPU_TEMP}°C\n󰢮 GPU Usage: ${GPU_USAGE}%\n󰢮 GPU Temp: ${GPU_TEMP}°C\n󰍛 RAM: ${RAM_INFO}\n󰋊 Disk: ${DISK_INFO}\n󰈐 Fan Speed: ${FAN_SPEED} RPM\n󰛳 Network: ${NET_STAT}\n󰔏 Temp: ${CPU_TEMP}°C"}
+{"text": "$TEXT", "tooltip": " CPU Usage: ${CPU_USAGE}%\n CPU Temp: ${CPU_TEMP}°C\n󰢮 GPU Usage: ${GPU_USAGE}%\n󰢮 GPU Temp: ${GPU_TEMP}°C\n󰍛 RAM: ${RAM_INFO}\n󰋊 Disk: ${DISK_INFO}\n󰈐 Fan Speed: ${FAN_SPEED} RPM\n󰛳 Network: ${NET_STAT}\n󰔏 System Temp: ${SYS_TEMP}°C"}
 EOF
