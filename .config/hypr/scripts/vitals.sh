@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Rotate based on system time (changes every 5 seconds, cycles through 0, 1, 2) - NO FILES WRITTEN TO DISK
-INDEX=$(( (EPOCHSECONDS / 5) % 3 ))
-
 # CPU Usage & Temp (Clean integers + units)
 CPU_TEMP=$(sensors 2>/dev/null | grep -E 'Package id 0|Tctl|CPU' | awk '{print $4}' | tr -d '+°C' | awk '{print int($1)}' | head -n 1)
 [ -z "$CPU_TEMP" ] && CPU_TEMP=0
@@ -57,14 +54,7 @@ else
     NET_STAT="Disconnected"
 fi
 
-# Rotate main text display between: 0 -> System Temp, 1 -> GPU Usage, 2 -> CPU Usage
-case $INDEX in
-    0) TEXT="󰔏 ${SYS_TEMP}°C" ;;
-    1) TEXT="󰈐 ${GPU_USAGE}%" ;;
-    2) TEXT=" ${CPU_USAGE}%" ;;
-esac
-
-# JSON payload for Waybar with full tooltip
+# Static JSON payload for Waybar
 cat <<EOF
-{"text": "$TEXT", "tooltip": " CPU Usage: ${CPU_USAGE}%\n CPU Temp: ${CPU_TEMP}°C\n󰢮 GPU Usage: ${GPU_USAGE}%\n󰢮 GPU Temp: ${GPU_TEMP}°C\n󰍛 RAM: ${RAM_INFO}\n󰋊 Disk: ${DISK_INFO}\n󰈐 Fan Speed: ${FAN_SPEED} RPM\n󰛳 Network: ${NET_STAT}\n󰔏 System Temp: ${SYS_TEMP}°C"}
+{"text": "󰔏 ${SYS_TEMP}°C", "tooltip": " CPU Usage: ${CPU_USAGE}%\n CPU Temp: ${CPU_TEMP}°C\n󰢮 GPU Usage: ${GPU_USAGE}%\n󰢮 GPU Temp: ${GPU_TEMP}°C\n󰍛 RAM: ${RAM_INFO}\n󰋊 Disk: ${DISK_INFO}\n󰈐 Fan Speed: ${FAN_SPEED} RPM\n󰛳 Network: ${NET_STAT}\n󰔏 System Temp: ${SYS_TEMP}°C"}
 EOF
