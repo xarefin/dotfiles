@@ -15,14 +15,24 @@
 
   <br>
 
-  ### 🖥️ Desktop & Waybar Overview
   <p align="center">
-    <img src="./wallpaper/your-wallpaper-name.png" width="100%" alt="Desktop Showcase">
+    <img src="./screenshots/main1.png" width="100%" alt="Showcase 1">
   </p>
 
-  ### 🪟 Rofi & Apps Layout
   <p align="center">
-    <img src="./wallpaper/another-showcase.png" width="100%" alt="Apps Showcase">
+    <img src="./screenshots/main2.png" width="100%" alt="Showcase 2">
+  </p>
+
+  <p align="center">
+    <img src="./screenshots/main3.png" width="100%" alt="Showcase 3">
+  </p>
+
+  <p align="center">
+    <img src="./screenshots/main4.png" width="100%" alt="Showcase 4">
+  </p>
+
+  <p align="center">
+    <img src="./screenshots/main5.png" width="100%" alt="Showcase 5">
   </p>
 
 </details>
