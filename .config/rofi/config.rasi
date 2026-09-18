@@ -1,17 +1,12 @@
 @import "colors.rasi"
 
-/* Translucent Dracula Rofi Config - Custom Window Icon \ne70f */
+/* Translucent Dracula Rofi Config */
 
 configuration {
-    modi:                    "drun,run,window";
+    modi:                    "drun,run,window,combi,filebrowser,recursivebrowser,calc";
     show-icons:              true;
     disable-history:         false;
-    font:                    "JetBrainsMono Nerd Font 12";  /* <--- Add this here */
-    
-    /* Custom Icons */
-    display-drun:            ""; 
-    display-run:             ""; 
-    display-window:          ""; 
+    font:                    "JetBrainsMono Nerd Font 12";  
     
     drun-display-format:     "{name} <span size='small' color='#6272a4'><i>({generic})</i></span>";
 }
