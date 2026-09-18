@@ -54,7 +54,37 @@ else
     NET_STAT="Disconnected"
 fi
 
-# Static JSON payload for Waybar
+# Brightness Percentage
+if command -v brightnessctl &> /dev/null; then
+    BRIGHTNESS=$(brightnessctl -m 2>/dev/null | awk -F, '{print $4}' | tr -d '%')
+else
+    BRIGHTNESS=0
+fi
+[ -z "$BRIGHTNESS" ] && BRIGHTNESS=0
+
+# Audio Volume & Status (Pipewire/WirePlumber or Pamixer support)
+if command -v wpctl &> /dev/null; then
+    AUDIO_VAL=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null)
+    AUDIO_VOL=$(echo "$AUDIO_VAL" | awk '{print int($2 * 100)}')
+    echo "$AUDIO_VAL" | grep -q "MUTED" && AUDIO_VOL="${AUDIO_VOL}% (Muted)" || AUDIO_VOL="${AUDIO_VOL}%"
+elif command -v pamixer &> /dev/null; then
+    AUDIO_VOL="$(pamixer --get-volume)% $(pamixer --get-mute | grep -q true && echo "(Muted)" || echo "")"
+else
+    AUDIO_VOL="N/A"
+fi
+
+# Microphone Volume & Status
+if command -v wpctl &> /dev/null; then
+    MIC_VAL=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ 2>/dev/null)
+    MIC_VOL=$(echo "$MIC_VAL" | awk '{print int($2 * 100)}')
+    echo "$MIC_VAL" | grep -q "MUTED" && MIC_VOL="${MIC_VOL}% (Muted)" || MIC_VOL="${MIC_VOL}%"
+elif command -v pamixer &> /dev/null; then
+    MIC_VOL="$(pamixer --source @DEFAULT_SOURCE@ --get-volume)% $(pamixer --source @DEFAULT_SOURCE@ --get-mute | grep -q true && echo "(Muted)" || echo "")"
+else
+    MIC_VOL="N/A"
+fi
+
+# Static JSON payload for Waybar with expanded tooltip
 cat <<EOF
-{"text": "󰔏 ${SYS_TEMP}°C", "tooltip": " CPU Usage: ${CPU_USAGE}%\n CPU Temp: ${CPU_TEMP}°C\n󰢮 GPU Usage: ${GPU_USAGE}%\n󰢮 GPU Temp: ${GPU_TEMP}°C\n󰍛 RAM: ${RAM_INFO}\n󰋊 Disk: ${DISK_INFO}\n󰈐 Fan Speed: ${FAN_SPEED} RPM\n󰛳 Network: ${NET_STAT}\n󰔏 System Temp: ${SYS_TEMP}°C"}
+{"text": "󰔏 ${SYS_TEMP}°C", "tooltip": " CPU Usage: ${CPU_USAGE}%\n CPU Temp: ${CPU_TEMP}°C\n󰢮 GPU Usage: ${GPU_USAGE}%\n󰢮 GPU Temp: ${GPU_TEMP}°C\n󰍛 RAM: ${RAM_INFO}\n󰋊 Disk: ${DISK_INFO}\n󰈐 Fan Speed: ${FAN_SPEED} RPM\n󰛳 Network: ${NET_STAT}\n󰃠 Brightness: ${BRIGHTNESS}%\n󰕾 Audio: ${AUDIO_VOL}\n󰍬 Mic: ${MIC_VOL}\n󰔏 System Temp: ${SYS_TEMP}°C"}
 EOF
