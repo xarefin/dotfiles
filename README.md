@@ -87,4 +87,7 @@
 
 ---
 
-> <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Symbols/Warning.webp" alt="Warning" width="25" height="25" align="absmiddle" /> **Caution:** This rice uses configs from many repos, so it's not 100% pure my creation.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Symbols/Warning.webp" alt="Warning" width="25" height="25" align="absmiddle" />
+  <b>Caution:</b> This rice uses configs from many repos, so it's not 100% pure my creation.
+</p>
