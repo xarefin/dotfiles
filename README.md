@@ -84,3 +84,7 @@
   </p>
 
 </details>
+
+---
+
+> **⚠️ Caution:** This rice uses configs from many repos, so it's not 100% pure my creation.
