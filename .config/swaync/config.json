@@ -58,14 +58,18 @@
     "buttons-grid": {
       "actions": [
         {
-          "label": "",
-          "command": "kitty wlctl",
-          "tooltip": "Network"
+          "label": " ",
+          "command": "nmcli radio wifi $([ $(nmcli radio wifi) = 'enabled' ] && echo 'off' || echo 'on')",
+          "type": "toggle",
+          "update_command": "nmcli radio wifi | grep -q 'enabled'",
+          "tooltip": "Toggle Wi-Fi"
         },
         {
           "label": "",
-          "command": "kitty bluetui",
-          "tooltip": "Bluetooth"
+          "command": "bluetoothctl show | grep -q 'Powered: yes' && bluetoothctl power off || bluetoothctl power on",
+          "type": "toggle",
+          "update_command": "bluetoothctl show | grep -q 'Powered: yes'",
+          "tooltip": "Toggle Bluetooth"
         },
         {
           "label": "󰂛",
@@ -73,18 +77,27 @@
           "type": "toggle",
           "tooltip": "DND"
         },
-       {
-  "label": "☁️",
-  "command": "kitty --hold curl wttr.in/satuta",
-  "tooltip": "Weather"
-},
         {
-  "label": "󰤄",
-  "command": "systemctl suspend",
-  "tooltip": "Sleep"
-},
+          "label": "󰖔",
+          "command": "pkill hyprsunset || hyprsunset",
+          "type": "toggle",
+          "update_command": "pgrep -x hyprsunset > /dev/null",
+          "tooltip": "Night Light (Hyprsunset)"
+        },
         {
-          "label": "",
+          "label": "󰤄",
+          "command": "systemctl suspend",
+          "type": "button",
+          "tooltip": "Suspend"
+        },
+        {
+          "label": "󰌾",
+          "command": "hyprlock",
+          "type": "button",
+          "tooltip": "Lock Screen"
+        },
+        {
+          "label": "",
           "command": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
           "type": "toggle",
           "tooltip": "Mute Audio"
@@ -100,11 +113,6 @@
           "command": "~/.config/hypr/scripts/airplane.sh",
           "type": "toggle",
           "tooltip": "Airplane Mode"
-        },
-        {
-          "label": "󰌾",
-          "command": "hyprlock",
-          "tooltip": "Lock Screen"
         },
         {
           "label": "󰅶",

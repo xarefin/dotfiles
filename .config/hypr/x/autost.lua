@@ -14,6 +14,7 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("wl-paste --type image --watch cliphist store")
     hl.exec_cmd("bluetoothctl power on")
     hl.exec_cmd("~/.config/hypr/scripts/upbat.sh")
+    hl.exec_cmd("udiskie")
     
 
 end)
