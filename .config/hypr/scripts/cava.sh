@@ -1,52 +1,44 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# ── Set up permanent config (once) ────────────────────────────────
-CONFIG_FILE="/tmp/waybar_cava_config"
-if [[ ! -f "$CONFIG_FILE" ]]; then
-    cat > "$CONFIG_FILE" <<'EOF'
+bar="▁▂▃▄▅▆▇█"
+dict="s/;//g"
+
+bar_length=${#bar}
+for ((i = 0; i < bar_length; i++)); do
+    dict+=";s/$i/${bar:$i:1}/g"
+done
+
+config_file="/tmp/bar_cava_config"
+cat >"$config_file" <<EOF
 [general]
+framerate = 30
 bars = 16
+
+[input]
+method = pulse
+source = auto
 
 [output]
 method = raw
 raw_target = /dev/stdout
 data_format = ascii
 ascii_max_range = 7
-
-[smoothing]
-integral = 77
-monstercat = 0
-waves = 0
 EOF
-fi
 
-# ── Block characters (index = value 0–7) ─────────────────────────
-dict=(" " "▂" "▃" "▄" "▅" "▆" "▇" "█")
+# Ensure cleanup when Waybar restarts/kills this script
+trap 'pkill -P $$; exit' EXIT INT TERM
 
-# Ensure cava is killed if the script exits
-trap "pkill -f 'cava -p $CONFIG_FILE'; exit" INT TERM EXIT
+# Function to check player status
+is_playing() {
+    status=$(playerctl status 2>/dev/null)
+    [ "$status" = "Playing" ]
+}
 
-# ── Main loop using process substitution to avoid subshell locks ───
-while true; do
-    if [[ "$(playerctl status 2>/dev/null)" == "Playing" ]]; then
-        while IFS= read -r line; do
-            if [[ "$(playerctl status 2>/dev/null)" != "Playing" ]]; then
-                break
-            fi
-            
-            output=""
-            for (( i=0; i<${#line}; i++ )); do
-                char="${line:$i:1}"
-                if [[ "$char" =~ ^[0-7]$ ]]; then
-                    output+="${dict[$char]}"
-                fi
-            done
-            printf "%s\n" "$output"
-        done < <(stdbuf -oL cava -p "$CONFIG_FILE")
-        
-        pkill -f "cava -p $CONFIG_FILE" 2>/dev/null
+# Stream CAVA output line-by-line while checking player state
+cava -p "$config_file" | sed -u "$dict" | while read -r line; do
+    if is_playing; then
+        echo "$line"
     else
         echo ""
-        sleep 1
     fi
 done
