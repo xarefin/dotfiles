@@ -187,7 +187,8 @@ hl.bind("CTRL + SHIFT + X",                   hl.dsp.exec_cmd([[
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprpicker -a"))
 
 
-
+-- UTILITIES Section
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/qr-scanner.sh"))
 
 
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar || waybar"))
